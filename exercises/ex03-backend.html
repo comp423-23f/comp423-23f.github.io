@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> EX03 - Check-in Backend - COMP423 - 23S</title>
+  <link rel="icon" type="image/png" href="/static/tabbrand.png" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="/static/styles.css?v=1692559628.729761">
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-1 fixed-top">
+    <div class="container">
+      <a href="/" class="navbar-brand">COMP423</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navmenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link " href="/">agenda</a>
+          </li>
+          <li class="nav-item">
+            <a href="/support" class="nav-link">support</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div id="exercises-page" class="container">
+    <div class="row pt-4">
+      <div class="col-12">
+        <h2>EX03 - Check-in Backend</h2>
+        <hr class="title" />
+      </div>
+    </div>
+
+    <script src="/static/scripts/toggle-handler.js"></script>
+    
+    <div class="row px-4">
+        <div id="box" class="toc col-xl-3 col-lg-3 order-1 order-lg-2" role="doc-toc">
+            <div id="menu-overview" class="link-page box">
+                <button id="overview-button" class="btn btn-ov" onclick="hideshow()">Overview  <img id="button-img" class="filter-icon" src="/static/components/Itinerary/arrow-up.svg" style="height:15px; padding-left: 4px;"></button>
+                <div id="overview-links">
+                    <div id="TOC" role="doc-toc">
+                        <ul class="overview-item"><ul>
+<li><a href="#getting-started">Getting Started</a></li>
+<li><a href="#workflow-expectations">Workflow Expectations</a></li>
+<li><a href="#deadlines">Deadlines</a></li>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#technical-requirements">Technical Requirements</a></li>
+<li><a href="#personas">Personas</a></li>
+<li><a href="#stories">Stories</a>
+<ul>
+<li><a href="#story-a">Story A</a></li>
+<li><a href="#story-b">Story B</a></li>
+<li><a href="#story-c">Story C</a></li>
+<li><a href="#story-d">Story D</a></li>
+<li><a href="#story-e">Story E</a></li>
+<li><a href="#story-f">Story F</a></li>
+</ul></li>
+<li><a href="#build-automation-and-production-deployment">Build Automation and Production Deployment</a>
+<ul>
+<li><a href="#accessing-cloud-infrastructure">Accessing Cloud Infrastructure</a>
+<ul>
+<li><a href="#install-openshift-cli-client-on-your-host-machine">Install OpenShift CLI Client on your Host Machine</a></li>
+<li><a href="#login-to-openshift-cli-tool">Login to OpenShift CLI Tool</a></li>
+</ul></li>
+<li><a href="#build-automation">Build Automation</a>
+<ul>
+<li><a href="#add-a-top-level-dockerfile-for-building-the-production-image.">Add a top-level Dockerfile for building the production image.</a></li>
+<li><a href="#deploy-key-secrets">Deploy Key Secrets</a></li>
+<li><a href="#create-an-app">Create an App</a></li>
+</ul></li>
+<li><a href="#management">Management</a>
+<ul>
+<li><a href="#deleting-when-youre-done-or-hit-a-road-block">Deleting when you’re done or hit a road block</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#optional-challenges-no-credit">Optional Challenges (No Credit)</a></li>
+</ul>
+</</ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="content" class="content col-xl-9 col-lg-9 order-2 order-lg-1 pt-3"><p>In this exercise, you and a partner will create the back-end API and integration with a front-end user interface for the simple check-in system began in EX01.</p>
+<h2 id="getting-started">Getting Started</h2>
+<ol type="1">
+<li>Find your new Team Name and paired partner on the sheet linked to from the Canvas announcement.</li>
+<li>Lookup their contact information in the <a href="https://directory.unc.edu">UNC Directory</a> if you do not have it already.</li>
+<li>E-mail them, if they have not e-mailed you already, and propose some of the next possible dates and times you can get together to pair program!</li>
+<li>Accept the assignment on GitHub. First see if your team name already exists and join your teammate there, if so. If your team has not been accepted, create it with the exact same name shown on the EX01 Pairing sheet, and your partner will join your team later. PLEASE BE CAREFUL TO NAME YOUR TEAM CORRECTLY AND/OR JOIN THE CORRECT TEAM. The assignment link is here: <a href="https://classroom.github.com/a/5O1_c-GC" class="uri">https://classroom.github.com/a/5O1_c-GC</a></li>
+<li>Both of you should clone and setup the VSCode development environment according to the <code>README.md</code> file in the repository.</li>
+</ol>
+<h2 id="workflow-expectations">Workflow Expectations</h2>
+<p>For this exercise, you should work on appropriately scoped work-in-progress feature branches you push to GitHub as progress is made. If any work is being completed remotely and asynchronously between you and your partner, you should do this work on a branch and create a pull request, with code review, for your partner to complete. Their job should be to merge in the code of the pull request via GitHub’s interface, unless there are merge conflicts in which case it is the PR submitter’s job to resolve them. Where possible, pair programming is strongly encouraged on this project, even if it needs to be done remotely over zoom and screen sharing.</p>
+<h2 id="deadlines">Deadlines</h2>
+<ol type="1">
+<li>RD03 - Thursday, February 16th</li>
+<li>EX03 - Thursday, February 23rd</li>
+</ol>
+<hr />
+<h2 id="overview">Overview</h2>
+<p>The goal of this exercise is to achieve a similar outcome to EX01 in terms of functionality, <em>except</em> that the front-end will be fully connected with a server-side, back-end REST API powered by <a href="https://fastapi.tiangolo.com/">FastAPI</a>.</p>
+<p>The starting point for this exercise backtracks on EX01 and offers a simple starter example with a partially implemented Story B and fully implemented Story C. Before you begin working on this project with your partner, you should complete RD03 as pre-work. This guided reading takes you on a tour through the code base and zeroes in on some important aspects that will help you understand how the system is coming together.</p>
+<p>You are encouraged to keep your implementation as straightforward as possible before incorporating any elements from EX01, or optional extensions.</p>
+<p>While the stories are the same as before, there are a few specific technical requirements to lookout for on the implementation side. We will be looking more closely at some implementation details on this exercise.</p>
+<h2 id="technical-requirements">Technical Requirements</h2>
+<ol type="1">
+<li><p>20pts (1hr to get acclimated, 2min once you know what you need to do) - Registrations should “persist” in the backend via the provided <code>storage</code> functionality. This back-end API route and functionality is <em>already implemented</em> for you as an example. The front-end UI is also fully implemented in <code>frontend/src/app/registration/registration.component.ts</code>. You have a small bit of work to do to for the front-end to communicate with the correct back-end route, both HTTP method and path, using the <code>HttpClient</code> in <code>frontend/src/app/registration.service.ts</code>. The challenge of this technical requirement is purely understanding the system and <code>HttpClient</code>; once you are familiar, this is a <em>maddeningly simple</em> technical requirement to complete.</p></li>
+<li><p>20pts (1hr) - The route to create a checkin should be a POST and expects a <code>CheckinRequest</code> model object as its request body, as defined in <code>backend/checkin.py</code>. With a successful checkin, the route should respond with a <code>Checkin</code> object. Use the provided <code>storage</code> facilities for creating the checkin. If there is an error, respond with a status code of 422. Test your implementation using FastAPI’s <code>/docs</code>.</p></li>
+<li><p>20pts (1hr) - On the front-end of checkin, all the expectations of the behaviors for Story D remain.</p></li>
+<li><p>15pts (45m) - Before attempting this technical requirement, you should get a table of your checkins displaying per Story E. Your times will look like the following string: “2023-02-15T09:29:16.847509”. This is the textual encoding of date time data sent from the server. It’s in string form when the data arrives at your front-end, so you want to convert it to actual Date objects.</p></li>
+</ol>
+<blockquote>
+<p>In the service for checkins, where you implement the method that fetches all checkins from the server, before returning the observable of checkin array, you should <em>transform</em> the checkin data to convert the <code>created_at</code> property for each object from a <code>string</code> to a <code>Date</code> object. To do so, you should use the <code>pipe</code> functionality of an <code>rxjs</code> <code>Observable</code> in conjunction with <code>map</code>.</p>
+</blockquote>
+<blockquote>
+<p>To add some visibility into this step while you are working on it, try using <code>tap</code> in conjunction with <code>pipe</code> to log data to the browser’s developer console following the <code>map</code> operation. Read the official <code>rxjs</code> documentation on each of these operators to learn more.</p>
+</blockquote>
+<blockquote>
+<p>When this transformation is working, you will see the checkin created at time showing up in your front-end like “Wed Feb 15 2023 09:29:16 GMT-0500 (Eastern Standard Time)”. If you used a <code>tap</code> operator for development purposes, you should remove it once completed.</p>
+</blockquote>
+<ol start="5" type="1">
+<li><p>5pts (15m) - Complete Technical Requirement #4 before attempting this requirement. After transforming your data in the checkin service, on the front-end of stats, the reformat the displayed date of checkins showing to be “2023/02/15 @ 09:29AM” where each of the month, day, hour, and minute are zero padded. Look for information on Angular’s date pipe to implement this.</p></li>
+<li><p>10pts (2hr) - Implement the back-end of Story F and add your own extensions to <code>storage.py</code> to implement needed functionality. You should also implement unit tests for your functionality in <code>storage_test.py</code>. Your documentation conventions should follow those established in these two files. To run your unit tests, you have two options. From a new terminal, change your directory to backend and try running <code>pytest</code>. Alternatively, use VSCode’s built-in Testing tool in the sidebar. Provide tests that demonstrate your delete functionality is working in the <code>storage</code> layer before worrying with routes or front-end functionality. Once you are convinced your <code>storage</code> implementation is working, add a route using the <code>DELETE</code> method to your API and test that it works via the FastAPI <code>/docs</code> explorer.</p></li>
+<li><p>10pts (2hr) - Implement the front-end of Story F such that a button or link on a user’s row can be clicked to initiate the deletion of a user’s account. After the deletion succeeds, you should “reinitialize” the observables in the stats component to force the data to be reloaded in its view.</p></li>
+</ol>
+<h2 id="personas">Personas</h2>
+<p>The three personas are the same as in EX01.</p>
+<p>Sol Student - Sol is a CS major who will visit and return to the CS Experience Lab as a productivity space.</p>
+<p>Arden Ambassador - Arden is an ambassador to the CS Experience Lab who is volunteering at the check-in desk.</p>
+<p>Merritt Manager - Merritt is a manager of the CS Experience Lab who evaluates usage of the space.</p>
+<h2 id="stories">Stories</h2>
+<p>The stories are <em>mostly</em> the same as in EX01. Some subtle changes exist in Story E and an additional Story F has been added.</p>
+<h3 id="story-a">Story A</h3>
+<p>As any persona, I want to be able to click through to any of the story tasks below so that I can quickly navigate the application.</p>
+<p>Subtasks:</p>
+<ol type="1">
+<li>All personas should find links to the routes which feature their stories on a home page URL path of “/” in the application. Clarification: Since there is no “user login” in this simple application, links to all stories will be presented to anyone using your application at this stage. Add links to the home page to each story’s component as you implement it.</li>
+</ol>
+<h3 id="story-b">Story B</h3>
+<p>As Sol Student, I want to register for the CS Experience Lab on my first visit to the colab space so that I can easily check-in in the future.</p>
+<p>Subtasks:</p>
+<ol type="1">
+<li>Sol Student will find the navigation form at the URL path “/register”.</li>
+<li>Sol Student will need to register with their first name, last name, and PID.</li>
+<li>Sol Student should see a thank-you message after registering that includes their name and the register form fields should be cleared.</li>
+<li>Sol Student should have a link to return home after registration.</li>
+</ol>
+<h3 id="story-c">Story C</h3>
+<p>As Merritt Manager, I want to be able to see a listing of all registered members.</p>
+<p>Subtasks:</p>
+<ol type="1">
+<li>Merritt Manager will find these listings at the URL path “/stats”.</li>
+<li>Merritt Manager will see a list of registered members including their first and last names, and PID.</li>
+</ol>
+<h3 id="story-d">Story D</h3>
+<p>As Arden Ambassador, I want to be able to check Sol Student in using only thier PID so that I can easily check them in.</p>
+<p>Subtasks:</p>
+<ol type="1">
+<li>Arden Ambassador will find the checkin form at the URL path “/checkin”.</li>
+<li>Arden Ambassador will need to enter a 9-digit PID. If the PID is not 9-digits exactly when the form is submitted, an error message should indicate bad PID.</li>
+<li>After submitting the form, Arden Ambassador should see a message with the first and last name of the student who checked in. The 9-digit PID field should be cleared.</li>
+<li>After submitting the form, if the 9-digit PID is not registered, Arden Ambassador should see a message letting them know the PID could not be found. The 9-digit PID field should not be cleared.</li>
+</ol>
+<h3 id="story-e">Story E</h3>
+<p>As Merritt Manager, I want to be able to see a listing of all checkins.</p>
+<p>Subtasks:</p>
+<ol type="1">
+<li>Merritt Manager will find these listings at the URL path “/stats”.</li>
+<li>Merritt Manager will see a list of registered members. The order of these members is unimportant for EX03.</li>
+<li>Merrit Manager will see a list of checkins including their date, time, and the name of the user who checked in.</li>
+</ol>
+<h3 id="story-f">Story F</h3>
+<p>As Merritt Manager, I want to be able to delete registered users from the system.</p>
+<p>Subtasks:</p>
+<ol type="1">
+<li>Merritt Manager will be able to delete a user from the URL path “/stats”.</li>
+<li>Deleting a user will also delete all of their associated checkins.</li>
+<li>Deleting a user should automatically purge their information from the stats view upon success.</li>
+</ol>
+<hr />
+<h1 id="build-automation-and-production-deployment">Build Automation and Production Deployment</h1>
+<p>In this part of the project, you will establish a cloud build and production deployment infrastructure. The infrastructure you will work in, Kubernetes and Red Hat OpenShift, are industrial-grade platforms with a significant amount of flexibility. Admittedly, our setup will be modest in comparison to what is possible for running applications at internet scale on such a system, but make no mistake about it: this is very real cloud infrastructure and represents most of the key components you will encounter in a modern, industry-grade production system.</p>
+<h2 id="accessing-cloud-infrastructure">Accessing Cloud Infrastructure</h2>
+<p><strong>Warning:</strong> if you are not on-campus when working with the cloud infrastructure, it will have the appearance of being “down”. This is due to a firewall preventing off-campus access without a virtual private network VPN connection. If you try to load Cloud Apps at any point this semester and see a non-responsive or blank web page, it is likely because you are not connected via Eduroam nor the VPN.</p>
+<p>If you are off-campus, you will need to establish a VPN connection in to make use of Carolina CloudApps: https://portal.ed.unc.edu/resources/connecting-to-vpn-for-off-campus-access-to-network-resources/</p>
+<p>If you are on-campus and connected to EduRoam or another UNC network, or after you have connected to the VPN from off-campus, visit <a href="https://cloudapps.unc.edu" class="uri">https://cloudapps.unc.edu</a> and click the “Sign up” link in the header. Agree to the terms to complete registration. Then, go back to the Cloud Apps home page and click the “Sign in” link. This should bring you to the Cloud Apps web application user interface which is Red Hat OpenShift running on Kubernetes.</p>
+<h3 id="install-openshift-cli-client-on-your-host-machine">Install OpenShift CLI Client on your Host Machine</h3>
+<p>Once you are logged in to Carolina CloudApps, navigate to the Command Line Tools download page: https://console.apps.cloudapps.unc.edu/command-line-tools</p>
+<p>The following is primarily an excerise in system administration fundamentals. While not a <em>programming</em> skill, becoming comfortable with the actions and ideas you will need to take in order to install a plain-old binary program on your system is an important rite of passage.</p>
+<p>These actions will be taking place on your <em>host</em> machine (e.g. macOS or Windows) and <em>not</em> your dev container.</p>
+<p>From the downloads page, you will download a zip file containing the <code>oc</code> CLI program for your computer. You will need to install this program in a directory somewhere on your host machine included in your <code>$PATH</code> list of directories. This concept of adding a binary program (or script) to somewhere on a machine’s <code>$PATH</code> is an important one to understand as a software engineer.</p>
+<p>As a brief reminder, the <code>$PATH</code> environment variable contains a list of all directories that will be scanned, in order, looking for a program to run. When you type <code>python3 -m pip</code>, for example, the directories listed in the <code>$PATH</code> will be checked until a program named <code>python3</code> is found and that is how it is decided for it to be used as the executable in your command.</p>
+<p>From a bash or zsh terminal on your host machine (<strong>not your DevContainer’s in VSCode!</strong>) try running <code>echo $PATH</code> to see a list of directories. On Mac, you will likely see <code>/usr/local/bin</code> as one of the entries. On Windows, you will see a path including a directory with <code>Program Files</code> in the name. Use the <code>mv</code> command-line utility to move the <code>oc</code> binary file (<code>oc.exe</code> on Windows). After successfully doing so, you should be able to run the command <code>oc</code> and see some output starting with “OpenShift Client”. On Mac, if you do not have permission to <code>mv</code> the file to the given directory, try prefixing the command with <code>sudo</code> which will attempt to run the command as an administrator of the computer.</p>
+<p>If, on Mac, you see a pop-up indicating a program cannot be run unsafely, you will need to open your system’s Privacy and Security settings, scroll down to the Security section, select the radio option “Allow applications downloaded from App Store and identified developers” and look for a button regarding giving permission to the program ‘oc’ to run. You will need to give this permission and then try running <code>oc</code> again.</p>
+<h3 id="login-to-openshift-cli-tool">Login to OpenShift CLI Tool</h3>
+<p>Once you have successfully installed OpenShift CLI on your host machine, you will need to “login” from your local CLI to connect with Carolina Cloud Apps. Back in the Cloud Apps web site, look for your name in the top right, click it and select “Copy login command”.</p>
+<p>From here, click “Display Token”. In the first blue/gray box labeled “Log in with this token”, copy the command in its entirety and paste it into your host’s terminal. Press enter. You should see confirmation that you are logged in as your onyen and using a project also titled as your onyen. You are now logged in to the OpenShift Command-line Interface!</p>
+<h2 id="build-automation">Build Automation</h2>
+<p>The build system we will use is OpenShift’s Dockerfile-based build strategy. The big picture idea here is when a build is initiated your repository will be cloned from GitHub by the Cloud Apps builder system. It will look for a <code>Dockerfile</code>, which you will setup shortly, that guides the build of an image. This is <em>similar</em> to the DevContainer build process and image you are using for development, but the production image will be a precompiled <em>snapshot</em> of your project at the specific commit of your <code>main</code> branch when the build initiates. The front-end will be compiled and minified, like you previously learned how to do manually to deploy the front-end exercise, and the backend files will be copied in. Subsequent builds can be initiated as your project progresses and new commits are added to your <code>main</code> branch. Each build will produce a new versioned image in a “stream” of images such that if you needed to revert back to a previous version you could use an old image from earlier in the stream of versioned images. This style of build and deploy is in the spirit of “<a href="https://devopscube.com/immutable-infrastructure/">immutable infrastructure</a>,” a modern DevOps best practice.</p>
+<h3 id="add-a-top-level-dockerfile-for-building-the-production-image.">Add a top-level Dockerfile for building the production image.</h3>
+<p>In the top-level of your workspace, outside of frontend/backend/.devcontainer, add the following contents to a new file named <code>Dockerfile</code>:</p>
+<pre><code># Front-end Build Steps
+FROM node:18 as build
+COPY ./frontend/package.json /workspace/frontend/package.json
+COPY ./frontend/angular.json /workspace/frontend/angular.json
+WORKDIR /workspace/frontend
+RUN npm install -g @angular/cli &amp;&amp; npm install
+ENV SHELL=/bin/bash
+RUN ng analytics disable
+COPY ./frontend/src /workspace/frontend/src
+COPY ./frontend/*.json /workspace/frontend
+RUN ng build --optimization --output-path ../static
+
+# Back-end Build Steps
+FROM python:3.11
+RUN python3 -m pip install --upgrade pip
+COPY ./backend/requirements.txt /workspace/backend/requirements.txt
+RUN pip install --no-cache-dir --upgrade -r /workspace/backend/requirements.txt
+COPY --from=build /workspace/static /workspace/static
+COPY ./backend /workspace/backend
+WORKDIR /workspace/backend
+CMD [&quot;uvicorn&quot;, &quot;main:app&quot;, &quot;--host&quot;, &quot;0.0.0.0&quot;, &quot;--port&quot;, &quot;8080&quot;]
+ENV TZ=&quot;America/New_York&quot;
+EXPOSE 8080</code></pre>
+<p>These contents are build steps for preparing the production Docker image. Unlike in development, where you run <code>ng serve</code>, notice in the front-end build steps you are seeing <code>ng build</code> as the ultimate command that builds production bundles of your Angular application just like you did in EX01. The second part of the build process involves starting from the latest <code>python:3.11</code> image and installing 3rd party dependencies from <code>requirements.txt</code>, copying backend code from the repository to the image, copying the static assets from the front-end phase of the build, specifying how to start up the <code>uvicorn</code> server, setting the server’s time zone, etc.</p>
+<p>Add this file to your project and be sure it is included on a commit pushed to the <code>main</code> branch on GitHub before continuing on.</p>
+<h3 id="deploy-key-secrets">Deploy Key Secrets</h3>
+<p>Before OpenShift’s builder process is able to clone your repository from GitHub, we need to establish a means for OpenShift to <em>authenticate</em> itself to gain access to your private repository. This will closely resemble how <em>you</em> authenticate yourself with GitHub, but with the key difference it’s the builder process running on Carolina Cloud app’s computers– not yours!– that needs to gain access to your GitHub repository.</p>
+<p>It is worth pausing to reflect on how sensitive this step is in real world applications: you are setting up a means to directly access your code in a private repository. At organizations you may find yourself employed by, or founding, the code in your private repositories are some of it’s most valuable assets and their secure handling is very important to maintaining their secrecy and protecting customers from hacks.</p>
+<p>It is for these reasons that you want to be very careful to never commit secrets to a <code>git</code> repository. The keys we are about to setup are considered secrets! (If you find yourself at an organization that breaks this rule: run.)</p>
+<p>To avoid accidentally commiting secrets to a project, one strategy is to be sure the filenames containing the secrets are added to the project’s <code>.gitignore</code>. Go ahead and add the following to your <code>.gitignore</code> file:</p>
+<p><code>deploy_key*</code></p>
+<p>Go ahead and make a commit with this change to <code>.gitignore</code> included in the commit.</p>
+<p><strong>DEVCONTAINER:</strong> Back in your DevContainer’s terminal, not your host’s, generate an SSH key:</p>
+<pre><code>ssh-keygen -t ed25519 -C &quot;GitHub Deploy Key for EX03&quot; -f ./deploy_key</code></pre>
+<p>Note: Do NOT set a passphrase for the ssh key, just press enter at the prompt. You should now see the files <code>deploy_key</code>, which is the private/secret key, and <code>deploy_key.pub</code> which is the public key.</p>
+<p><strong>HOST:</strong> Back out in your host machine’s terminal, <code>cd</code> into your EX03 project on your host machine and run the following command to add the private key as a secret to your Cloud Apps account:</p>
+<pre><code>$ oc create secret generic comp423-ex03-deploykey \
+    --from-file=ssh-privatekey=./deploy_key \
+    --type=kubernetes.io/ssh-auth</code></pre>
+<p>If you are a Windows user, you may have to use the executable <code>./oc</code> instead of just <code>oc</code>, and run as administrator if using PowerShell (though we encourage using Windows terminal with git bash rather than PowerShell)</p>
+<p>You can verify this worked from two places:</p>
+<ol type="1">
+<li>The CLI. Try running <code>oc get secret comp423-ex03-deploykey</code> and you will see the name, type, and age of the secret.</li>
+<li>The Web UI. You should now be able to go to your OpenShift Develper view’s Secrets list and see <code>comp423-ex03-deploykey</code> listed as a secret in your project.</li>
+</ol>
+<p>Finally, you need to link your secret to the “builder” of OpenShift. Currently, only you have access in your account to your secret. This linking process gives access to the secure secret to the builder process responsible for cloning and building your project:</p>
+<pre><code>$ oc secrets link builder comp423-ex03-deploykey</code></pre>
+<p>Next, go to your GitHub Project’s Settings on GitHub.com. In the sidebar, look for the “Security” section’s “Deploy keys” option. Click “Add deploy key.”</p>
+<p>Add the title of “CloudApps - EX03 - YOUR_ONYEN”. In VSCode, open the public key you just generated named <code>deploy_key.pub</code>, copy and paste its contents into the Key box. Do not allow write access. Save the key.</p>
+<h3 id="create-an-app">Create an App</h3>
+<p>Back in your host terminal, it’s time to create the app on OpenShift! Be sure to substitute <code>&lt;your-ex03-repository-name&gt;</code> with your actual repository’s name/URL on GitHub:</p>
+<pre><code>$ oc new-app python:3.11~git@github.com:comp423-23s/&lt;your-ex03-repository-name&gt;.git \
+    --source-secret=comp423-ex03-deploykey \
+    --name=comp423-ex03 \
+    --strategy=docker</code></pre>
+<p>In the above command, the <code>python:3.11</code> preceding the tilde is specifying the base image of this project to be <code>python:3.11</code>, corresponding with the final stage of the <code>Dockerfile</code> build script you added to your project above. This is followed by the repo URL on GitHub, a reference to the secret key you just established, a name for the application, and finally the build strategy being Dockerfile-based as described previously.</p>
+<p>To “follow” the first build, run the next command. You will see some “errors” in pulling images and whatnot along the way, ignore these for as long as it’s making progress.</p>
+<p>When it’s completed, you should see “Push successful”. Additionally, if you go to OpenShift’s Developer View &gt; Topology, you should see your application here.</p>
+<pre><code>$ oc logs -f buildconfig/comp423-ex03</code></pre>
+<p>If the build fails for some reason, try deleting the app and starting again. To delete the app, run the command <code>oc delete all --selector app=comp423-ex03</code>.</p>
+<p>We will learn more about environment variables soon, but to set the MODE variable to “production”, run the following commands:</p>
+<pre><code>$ oc set env deployment/comp423-ex03 MODE=production
+$ oc set env deployment/comp423-ex03 --list # To see all env vars set</code></pre>
+<p>Once the build completes and your container is running it is protected from the internet by a firewall. To make a port on your application publicly accessible, we need to create a “route” to it in the Kubernetes. This is a different kind of route than an Angular route or a FastAPI route. This route will give you a publicly accessible means for accessing your container, running in a pod. First, you’ll expose the port 80 and bind it to port 8080, which your FastAPI server is running on. Second, you’ll create an edge route, which is what gives you a publicly accessible route.</p>
+<pre><code>$ oc expose deployment comp423-ex03 --port=80 --target-port=8080
+$ oc create route edge --service=comp423-ex03</code></pre>
+<p>In the web UI, if you go to Developer, Topology and select <code>comp423-ex03</code>, switch to the Resources. At the bottom you should see “Routes” with a location URL. Click that route to open up your web app. You’ll likely see a not found message in JSON, but if you add <code>/docs</code> to the end of the URL you should see the API docs UI.</p>
+<p>Woohoo!</p>
+<p>Now, let’s get the front-end working. The reason the base URL currently returns a “not found” is because of a key difference in the development container setup, where we run Angular’s Dev Server to host the HTML/JS/CSS, and in production we ultimately just have static files in the <code>/workspace/static</code> directory that were built as part of the <code>Dockerfile</code>’s build. We need our web server to host these files; luckily FastAPI’s infrastructure makes this straightforward.</p>
+<p>Add the following file to <code>backend</code> directory named <code>static_files.py</code>:</p>
+<pre><code>&quot;&quot;&quot;Single-page application middleware.
+
+Our application is organized as a single-page application (SPA). This middleware class
+extends the functionality of the StaticFiles middleware and was inspired by:
+&lt;https://stackoverflow.com/questions/63069190/how-to-capture-arbitrary-paths-at-one-route-in-fastapi&gt;
+&quot;&quot;&quot;
+
+__author__ = &quot;Kris Jordan &lt;kris@cs.unc.edu&gt;&quot;
+
+import os
+
+from fastapi.staticfiles import StaticFiles
+
+
+class StaticFileMiddleware(StaticFiles):
+
+    def __init__(self, directory: os.PathLike, index=&quot;index.html&quot;) -&gt; None:
+        self.index = index
+        super().__init__(directory=directory, packages=None, html=True, check_dir=True)
+
+    def lookup_path(self, path: str) -&gt; tuple[str, os.stat_result]:
+        &quot;&quot;&quot;Returns the index file when no match is found.
+
+        Args:
+            path (str): Resource path.
+
+        Returns:
+            tuple[str, os.stat_result]: Returns a full path and stat result.
+        &quot;&quot;&quot;
+        full_path, stat_result = super().lookup_path(path)
+
+        if stat_result is None:
+            return super().lookup_path(self.index)
+        else:
+            return (full_path, stat_result)</code></pre>
+<p>Then add the following import to <code>main.py</code>’s import section:</p>
+<pre><code>from static_files import StaticFileMiddleware</code></pre>
+<p>Finally, add the following line after all of your other routes:</p>
+<pre><code>app.mount(&quot;/&quot;, StaticFileMiddleware(&quot;../static&quot;, &quot;index.html&quot;))</code></pre>
+<p>Add these changes and make a commit on <code>main</code>. Push your branch to GitHub. To initiate a new production build manually (we’ll see how to make this automatic on push shortly), run the following command on your host machine:</p>
+<pre><code>$ oc start-build comp423-ex03 --follow</code></pre>
+<p>The <code>--follow</code> option causes the output of the build to be streamed to your terminal. To disconnect, press <code>Ctrl+C</code>. Once the build completes, though, it will be deployed within a few seconds. Try refreshing your browser at the home page of your app and you should (hopefully) see your front-end working!</p>
+<h2 id="management">Management</h2>
+<p>We will spend more time in the future discussing the management of your cloud deployment in Kubernetes. To get a sense of the pieces that came together, though, you can list all resources in OpenShift related to the app:</p>
+<pre><code>$ oc get all --selector app=comp423-ex03 -o name</code></pre>
+<h3 id="deleting-when-youre-done-or-hit-a-road-block">Deleting when you’re done or hit a road block</h3>
+<p>Don’t do this until after grades are release, or you hit a road block, but to delete all resources in the app:</p>
+<pre><code>$ oc delete all --selector app=comp423-ex03</code></pre>
+<p>Note, this does not delete the Deploy Key Secret as its scope is outside of your app (it was needed to pull). You can delete that separately, though!</p>
+<hr />
+<h1 id="optional-challenges-no-credit">Optional Challenges (No Credit)</h1>
+<ol type="1">
+<li>(Easy) Implement your own <code>reverse</code> pipe such that you can reverse the orders of checkin in the Angular template. Search for how to implement a pipe in Angular.</li>
+<li>(Medium) Avoid using <code>alert</code> for surfacing messages to the user. Try creating a service for user messages that your components can post messages to. Then create a component which exists outside of the router outlet in <code>app.component.html</code> that displays the messages from this service and allows the user to hide messages with a button press. For an added challenge, try making the messages disappear after a little bit of time with something like <code>rxjs</code>’s <code>timer</code>.</li>
+<li>(Challenging) When checking a user in, allow the text box to search by name or PID and disable the ability to submit the form until a valid user is selected. Here you will want to use a text field’s <code>valueChanges</code> observable. Consider piping the observable through <code>debounceTime</code> and <code>mergeMap</code> operators.</li>
+</ol>
+</div>
+
+       
+
+    </div> 
+
+    <div class="authors-box bg-light mt-4 py-3 ps-4">
+      <span> Contributor(s): Kris Jordan</span>
+    </div>
+  </div>
+  <div class='link-page mt-3 container'>
+    <footer>
+      <h6 class="text-center align-middle footer-text">&copy; 2023 <a href="https://krisjordan.com">Kris Jordan</a>
+        - <a
+          href="https://docs.google.com/forms/d/e/1FAIpQLScQMteEvnQpBfGsAYP5TpuqokQenhZUIf8CNvfAUUZEjMCWZQ/viewform?usp=sf_link">Feedback
+          Form</a>
+        - Made with 💛 in <a href="https://cs.unc.edu/">Chapel Hill</a></h6>
+    </footer>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+    crossorigin="anonymous"></script>
+
+  <!-- Load React. -->
+  <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+  <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</body>
+
+</html>
