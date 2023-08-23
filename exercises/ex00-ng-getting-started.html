@@ -9,7 +9,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-  <link rel="stylesheet" href="/static/styles.css?v=1692803535.0557292">
+  <link rel="stylesheet" href="/static/styles.css?v=1692811473.0466633">
 </head>
 
 <body>
@@ -42,7 +42,9 @@
     </div>
 
     <div class="container">
-                <div class="content"><h2 id="complete-the-prerequisites">0. Complete the Prerequisites</h2>
+                <div class="content"><h2 id="introduction">Introduction</h2>
+<p>In this exercise, you will gain experience following an official tutorial authored by the Angular development team. You will also gain experience using a common git branching workflow that is important to start building a habbit of using before we enter pair and team work. Finally, you will be doing this work within the context of a VSCode DevContainer; a modern development environment that is becoming commonplace in industry.</p>
+<h2 id="complete-the-prerequisites">0. Complete the Prerequisites</h2>
 <ol type="1">
 <li>Install Docker Desktop</li>
 <li>Be sure the Docker Desktop program is <em>actually running</em> (check your status bar)</li>
@@ -51,13 +53,13 @@
 <li>Install VSCode Extension for DevContainers (Go to Extensions, search for Containers, select the official Microsoft extension for Dev Containers)</li>
 </ol>
 <h2 id="accept-the-github-classroom-assignment">1. Accept the GitHub Classroom Assignment</h2>
-<p>Accept Github Classroom Project via this link: https://classroom.github.com/a/-C4xC-O-</p>
+<p>Accept Github Classroom Project via this link: https://classroom.github.com/a/77yJwM-4</p>
 <h2 id="clone-the-project-locally-on-your-machine">2. Clone the project locally on your machine</h2>
 <p>You can do achieve this through the terminal or via VSCode. At this point in your CS career, we are hopeful you are able to remember, or search to remind yourself, how to clone a <code>git</code> repository from GitHub. Searches along the lines of “clone repository in vs code” should prove fruitful.</p>
 <h2 id="open-the-cloned-repositorys-directory-in-vscode">3. Open the cloned repository’s directory in VSCode</h2>
 <p>You will see the project files contain starter files for Angular’s Getting Started tutorial. There are lots of files! Do not let this overwhelm you. You will gain more comfort with the purposes of each in due time.</p>
 <h2 id="devcontainer---rebuild-and-reopen-in-container">4. DevContainer - Rebuild and Reopen in Container</h2>
-<p>Now for the <em>magical</em> step that involves DevContainers. Open VSCode’s command palette and look for “Rebuild and Reopen in Container.” This step will take a few minutes. Sit back and relax. Effectively what is happening here is a complete, virtualized Linux server environment is being built on the fly and all of the required software packages and development kits are being installed. We will explore what is going on behind the scenes here, as well as how to build your own DevContainers for your own projects, very soon. For now know that this step is taking care of a multi-step setup and installation process that otherwise would have taken you 30 minutes to an hour to do on your own, assuming all went to plan.</p>
+<p>Now for the <em>magical</em> step that involves DevContainers. Open VSCode’s command palette (Shortcut: Command+Shift+P on Mac and Control+Shift+P on Windows) and search for “Rebuild and Reopen in Container.” This step will take a few minutes. Sit back and relax. Effectively what is happening here is a complete, virtualized Linux server environment is being built on the fly and all of the required software packages and development kits are being installed. We will explore what is going on behind the scenes here, as well as how to build your own DevContainers for your own projects, very soon. For now know that this step is taking care of a multi-step setup and installation process that otherwise would have taken you 30 minutes to an hour to do on your own, assuming all went to plan.</p>
 <h2 id="after-vscode-reopens-in-the-devcontainers-environment-open-a-terminal">5. After VSCode Reopens in the DevContainer’s Environment, Open a Terminal</h2>
 <p>You should be able to open a new terminal and see a prompt that looks like this: <code>/workspace (main) &gt;&gt;</code></p>
 <p>Congratulations, you have started up your first DevContainer! This <code>zsh</code> shell is running inside the container, which has Node.js, Angular, and more installed. The <code>/workspace</code> is the working directory your terminal is in, which is where your repository’s files are mounted, and <code>(main)</code> refers to the branch your <code>HEAD</code> is on. This custom shell prompt is one of the niceties that was setup in the container build.</p>
@@ -65,6 +67,7 @@
 <p>Try running the command <code>ng serve</code> in the VSCode Terminal. The <code>ng</code> is short for a<strong>NG</strong>gular and is a command you will see is used regularly in the Angular development process.</p>
 <p>Open a web browser and navigate to <code>localhost:4200</code>. You should see “My Store”, which is the starting point for Angular’s Getting Started tutorial.</p>
 <h2 id="create-a-branch-for-getting-started">7. Create a Branch for Getting Started</h2>
+<p><strong>Please note! The very specific workflow given for git branches, commits, and pushes is going to be graded and part of the submission. Be sure to complete the git steps at each section.</strong></p>
 <p>Let’s practice getting in the habbit of creating a branch for work in progress. Open a new terminal window in VSCode (look for the plus button) and try the following commands:</p>
 <ol type="1">
 <li><code>git branch getting-started</code></li>
@@ -83,24 +86,30 @@
 <li><code>git add .</code> - In this scenario, we want to add all changed files.</li>
 <li><code>git status</code> - Confirm the files in staging/index are those we want to commit. Best practice!</li>
 <li><code>git commit -m 'Completed the Getting started section of Angular Getting Started'</code> - Create a commit</li>
-<li><code>git push origin getting-started</code> - Push your branch to your GitHub repository. If you check your GitHub project’s repository, in your Code tab, you will see a dropdown button with the <code>main</code> branch. Click it and you should see the <code>getting-started</code> branch. Notice switching between them changes the files you are browsing on GitHub.</li>
+<li><code>git push origin getting-started</code> - Push your branch to your GitHub repository.</li>
+</ol>
+<p><strong>Pleae be sure you completed step 5 successfully now, and in future sections, before continuing on! You can verify via opening your GitHub project repository, navigating to its Code tab, looking for a dropdown button with the <code>main</code> branch. Click it and you should see the <code>getting-started</code> branch (and, in the following sections, their branch names, too). Notice switching between them changes the files you are browsing on GitHub.</strong></p>
+<ol start="6" type="1">
 <li><code>git switch main</code> - Back in your terminal, switch to the <code>main</code> branch’s last commit. Notice your work is gone!</li>
 <li><code>git merge getting-started</code> - Merge the <code>getting-started</code> branch into <code>main</code>. Notice, this is a Fast-forward!</li>
 <li><code>git push origin main</code> - Push your remote’s <code>main</code>, also causing it to fast-forward to the same commit as the <code>getting-started</code> branch refers to.</li>
 </ol>
 <p>The steps of this workflow may feel like a lot of overhead when working individually on a project, but practicing them now will help when it comes time <em>very soon</em> to work in pairs on projects.</p>
 <h2 id="create-a-branch-for-adding-navigation">8. Create a Branch for Adding Navigation</h2>
-<p>Follow the same process to create a local branch named <code>adding-navigation</code>, switch to it, and complete the “Adding navigation” section of the Angular Getting Started Tutorial: <a href="https://angular.io/start/start-routing" class="uri">https://angular.io/start/start-routing</a></p>
+<p><strong>Please note! The very specific workflow given for git branches, commits, and pushes in Section 7 is going to be graded and part of the submission. Be sure to complete those steps before continuing to this section.</strong></p>
+<p><strong>Follow the same process shown in Section 7 to create a local branch named <code>adding-navigation</code></strong>, switch to it, and complete the “Adding navigation” section of the Angular Getting Started Tutorial: <a href="https://angular.io/start/start-routing" class="uri">https://angular.io/start/start-routing</a></p>
 <p>Once you have completed this section, follow the same workflow as before of adding files, creating a commit, pushing your branch, switching back to your main branch, merging the changes in, and so on.</p>
 <p>We will look for the existance of these branches in your project’s history as part of the rubric for this exercise, so be sure to follow the steps in the previous section for each of the following sections, as well.</p>
 <h2 id="create-a-branch-for-managing-data">9. Create a Branch for Managing Data</h2>
-<p>Follow the same process to create a local branch named <code>managing-data</code>, switch to it, and complete the “Adding navigation” section of the Angular Getting Started Tutorial: <a href="https://angular.io/start/start-data" class="uri">https://angular.io/start/start-data</a></p>
+<p><strong>Please note! The very specific workflow given for git branches, commits, and pushes in Section 7 is going to be graded and part of the submission. Be sure to complete those steps before continuing to this section.</strong></p>
+<p><strong>Follow the same process as above to create a local branch named <code>managing-data</code></strong>, switch to it, and complete the “Adding navigation” section of the Angular Getting Started Tutorial: <a href="https://angular.io/start/start-data" class="uri">https://angular.io/start/start-data</a></p>
 <p>Once you have completed this section, follow the same workflow as before of adding files, creating a commit, pushing your branch, switching back to your main branch, merging the changes in, and so on.</p>
 <h2 id="create-a-branch-for-using-forms-for-user-input">10. Create a Branch for Using forms for user input</h2>
-<p>Follow the same process to create a local branch named <code>forms-ui</code>, switch to it, and complete the “Adding navigation” section of the Angular Getting Started Tutorial: <a href="https://angular.io/start/start-forms" class="uri">https://angular.io/start/start-forms</a></p>
+<p><strong>Please note! The very specific workflow given for git branches, commits, and pushes in Section 7 is going to be graded and part of the submission. Be sure to complete those steps before continuing to this section.</strong></p>
+<p><strong>Follow the same process to create a local branch named <code>forms-ui</code></strong>, switch to it, and complete the “Adding navigation” section of the Angular Getting Started Tutorial: <a href="https://angular.io/start/start-forms" class="uri">https://angular.io/start/start-forms</a></p>
 <p>Once you have completed this section, follow the same workflow as before of adding files, creating a commit, pushing your branch, switching back to your main branch, merging the changes in, and so on.</p>
 <h2 id="great-work">Great work!</h2>
-<p>The GitHub submission for this exercise will open shortly with an announcement that follows!</p>
+<p>The Gradescope submission for this exercise is open and due by 11:59pm on its due date.</p>
 </div>
             </div>
 
