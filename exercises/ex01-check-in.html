@@ -9,7 +9,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-  <link rel="stylesheet" href="/static/styles.css?v=1694030168.7323842">
+  <link rel="stylesheet" href="/static/styles.css?v=1694178606.5795057">
 </head>
 
 <body>
@@ -63,7 +63,7 @@
 </ul></li>
 <li><a href="#optional-challenges">Optional Challenges</a></li>
 <li><a href="#getting-started">Getting Started</a></li>
-<li><a href="#deploy-strategy-configuration-and-submission">Deploy Strategy, Configuration, and Submission</a>
+<li><a href="#final-submission---build-and-deploy-strategy-for-github-pages">Final Submission - Build and Deploy Strategy for GitHub Pages</a>
 <ul>
 <li><a href="#the-general-strategy-will-be-as-follows">The general strategy will be as follows:</a></li>
 <li><a href="#building-locally-and-pushing-to-gh-pages">Building Locally and Pushing to <code>gh-pages</code></a></li>
@@ -129,8 +129,8 @@
 <hr />
 <h3 id="technical-requirements">Technical Requirements</h3>
 <ol type="1">
-<li>Use separate components for Registration, Stats, and CheckIn user interfaces</li>
-<li>Use services for Registrations and CheckIns. The Checkin service should depend on Registrations.</li>
+<li><p>Use separate page Components for Registration, Stats, and CheckIn user interfaces.</p></li>
+<li><p>Use services for maintaining Registration and Check-in data named <code>RegistrationService</code> and <code>CheckInService</code>, respectively. <code>CheckInService</code>’s only association is with <code>RegistrationService</code> and should be an <em>aggregation association</em>, formed via <a href="https://angular.io/guide/dependency-injection">dependency injection</a>, such that <code>CheckInService</code> takes a dependency on <code>RegistrationService</code>, not vice versa. Your Check-in Page component should then make use of <code>CheckinService</code> directly and <em>not</em> <code>RegistrationService</code>.</p></li>
 </ol>
 <h2 id="optional-challenges">Optional Challenges</h2>
 <ol type="1">
@@ -157,7 +157,8 @@
 <li>Open a terminal back up, <code>cd frontend</code> again, and start the Angular development server as in the getting started tutorial.</li>
 <li>From here, you should be able to open the application in the browser <em>and</em> start working on implementing your first stories!</li>
 </ol>
-<h2 id="deploy-strategy-configuration-and-submission">Deploy Strategy, Configuration, and Submission</h2>
+<h2 id="final-submission---build-and-deploy-strategy-for-github-pages">Final Submission - Build and Deploy Strategy for GitHub Pages</h2>
+<p>These steps are not necessary to follow until your project is ready for submission. The workflow for collaborating with your partner is above.</p>
 <p>Let’s get your project live on the internet! Until we learn about build processes and implementing our own containers and GitHub actions, we will take a simpler approach to deployment than is best practice.</p>
 <h3 id="the-general-strategy-will-be-as-follows">The general strategy will be as follows:</h3>
 <ol type="1">
