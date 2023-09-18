@@ -9,7 +9,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-  <link rel="stylesheet" href="/static/styles.css?v=1694789695.43548">
+  <link rel="stylesheet" href="/static/styles.css?v=1695062791.54352">
 </head>
 
 <body>
@@ -68,20 +68,20 @@
 <p>You will implement a backend API that uses JSON as its request and response body encoding format. To improve the viewing experience of JSON content in your web browser, you are encouraged to install the following popular <a href="https://chrome.google.com/webstore/detail/json-formatter/bcjindcccaagfpapjjmafapmmgkkhgoa">Chrom JSON Formatter browser extension</a>.</p>
 <h2 id="development-container-setup">Development Container Setup</h2>
 <ol type="1">
-<li>Clone the repository we setup as a sandbox for this exercise: https://github.com/comp423-23s/ex02-sandbox.git</li>
+<li>Clone the repository we setup as a sandbox for this exercise: https://github.com/comp423-23f/ex02-sandbox.git</li>
 <li>This is a bare bones setup that includes the latest verison of <code>python</code> (3.11) and <code>pip</code>, Python’s package manager.</li>
 <li>Open the repository in a DevContainer. This will build the image.</li>
 </ol>
 <h2 id="project-dependencies-setup">Project Dependencies Setup</h2>
 <p>Like <code>node.js</code>’s <code>package.json</code>, Python’s <code>requirements.txt</code> is a standard means for specifying external dependencies in Python. Here we are “pegging” the version on a specific major/minor version using <a href="https://semver.org/">semantic versioning</a>.</p>
 <p>Add a <code>requirements.txt</code> file to the project’s root directory with the contents below:</p>
-<pre><code>fastapi[all] &gt;=0.89.1, &lt;0.90.0</code></pre>
+<pre><code>fastapi[all] &gt;=0.103.1, &lt;0.104.0</code></pre>
 <p>The <code>fastapi[all]</code> pip package has all the dependencies needed to get started with a FastAPI application, such as the performant Python web server that we’ll use to host the backend <code>uvicorn</code>.</p>
 <p>To install the dependencies in this file, we’ll use Python’s de facto package management tool <code>pip</code>. Start a new terminal in your VSCode instance and run the following command:</p>
 <p><code>pip install -r requirements.txt</code></p>
 <p>The <code>-r</code> option indicates the installation of dependencies will be guided by a file in the standard <code>requirements.txt</code> format.</p>
 <h2 id="fastapi-tutorial---user-guide">FastAPI Tutorial - User Guide</h2>
-<p>You are now ready to begin the <a href="https://fastapi.tiangolo.com/">FastAPI User Guide’s standard tutorial</a>. For this exercise, there are a few things you should know while you are working through the following four sections:</p>
+<p>You are now ready to begin the <a href="https://fastapi.tiangolo.com/tutorial/first-steps/">FastAPI User Guide’s standard tutorial</a>. For this exercise, there are a few things you should know while you are working through the following four sections:</p>
 <ol type="1">
 <li>First Steps</li>
 <li>Path Parameters</li>
@@ -89,7 +89,7 @@
 <li>Request Body</li>
 </ol>
 <p>First, the examples along these parts of the tutorial appear “destructive” in the sense that at each new step it looks like only one function and route remains in the application. For the purposes of this exercise, you should be <em>adding</em> and <em>updating</em> routes and functions where there are new routes demonstrated, not deleting routes (unless the tutorial is iterating on or improving upon the same route example).</p>
-<p>Second, you should play around with examples the tutorial gives and modifying them not just mindlessly following along, which is easy to do. As you encounger words, concepts, or ideas you are unfamiliar with, you should search around and try to come to a cursory understanding of what it is referring to.</p>
+<p>Second, you should play around with examples the tutorial gives and modifying them not just mindlessly following along, which is easy to do. As you encounter words, concepts, or ideas you are unfamiliar with, you should search around and try to come to a cursory understanding of what it is referring to. Try asking ChatGPT to explain something to you!</p>
 <p>Finally, there are Gradescope questions which check for understanding along the way and a few activity extensions to complete.</p>
 <h2 id="submission">Submission</h2>
 <p>The only submission for this exercise is the Gradescope on-line assignment. You do not need to create a repository or push.</p>
