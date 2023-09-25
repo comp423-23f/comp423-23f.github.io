@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> EX03 - Check-in Backend API - COMP423 - 23S</title>
+  <link rel="icon" type="image/png" href="/static/tabbrand.png" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="/static/styles.css?v=1695668234.8193803">
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-1 fixed-top">
+    <div class="container">
+      <a href="/" class="navbar-brand">COMP423</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navmenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link " href="/">agenda</a>
+          </li>
+          <li class="nav-item">
+            <a href="/support" class="nav-link">support</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div id="exercises-page" class="container">
+    <div class="row pt-4">
+      <div class="col-12">
+        <h2>EX03 - Check-in Backend API</h2>
+        <hr class="title" />
+      </div>
+    </div>
+
+    <script src="/static/scripts/toggle-handler.js"></script>
+    
+    <div class="row px-4">
+        <div id="box" class="toc col-xl-3 col-lg-3 order-1 order-lg-2" role="doc-toc">
+            <div id="menu-overview" class="link-page box">
+                <button id="overview-button" class="btn btn-ov" onclick="hideshow()">Overview  <img id="button-img" class="filter-icon" src="/static/components/Itinerary/arrow-up.svg" style="height:15px; padding-left: 4px;"></button>
+                <div id="overview-links">
+                    <div id="TOC" role="doc-toc">
+                        <ul class="overview-item"><ul>
+<li><a href="#getting-started">Getting Started</a></li>
+<li><a href="#workflow-expectations">Workflow Expectations</a></li>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#technical-requirements">Technical Requirements</a></li>
+<li><a href="#stories">Stories</a>
+<ul>
+<li><a href="#story-b">Story B</a></li>
+<li><a href="#story-c">Story C</a></li>
+<li><a href="#story-d">Story D</a></li>
+<li><a href="#story-e">Story E</a></li>
+<li><a href="#story-f">Story F</a></li>
+</ul></li>
+<li><a href="#submission-instructions">Submission Instructions</a></li>
+</ul>
+</</ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="content" class="content col-xl-9 col-lg-9 order-2 order-lg-1 pt-3"><p>In this exercise, you will create the back-end API for the simple check-in system began in EX01. In the next exercise, you will work with a partner to connect this functionality with the front-end.</p>
+<h2 id="getting-started">Getting Started</h2>
+<ol type="1">
+<li>Accept the assignment on GitHub: <a href="https://classroom.github.com/a/HB9DifCC" class="uri">https://classroom.github.com/a/HB9DifCC</a></li>
+<li>Clone and setup the VSCode development environment according to the <code>README.md</code> file in the repository.</li>
+</ol>
+<h2 id="workflow-expectations">Workflow Expectations</h2>
+<p>For this exercise, you should work on appropriately scoped work-in-progress feature branches you push to GitHub as progress is made.</p>
+<hr />
+<h2 id="overview">Overview</h2>
+<p>The goal of this exercise is to achieve a similar outcome to EX01 in terms of functionality, <em>except</em> that the focus is on the back-end REST API powered by <a href="https://fastapi.tiangolo.com/">FastAPI</a>.</p>
+<p>The starting point for this exercise backtracks on EX01. Before you begin working on this project, you should complete the accompanying reading as pre-work. This guided reading takes you on a tour through the code base and narrows in on important aspects to help you understand how the backend starter code comes together.</p>
+<p>You are encouraged to keep your implementation as straightforward as possible.</p>
+<p>While the stories are the same as before, there are a few specific technical requirements to lookout for on the implementation side. We will be looking more closely at some implementation details on this exercise.</p>
+<h2 id="technical-requirements">Technical Requirements</h2>
+<ol type="1">
+<li><p>10pts - Story D API. Implement the route to create a checkin for Story D. It should be a POST and expects a <code>CheckinRequest</code> model object as its request body, as defined in <code>backend/models/checkin.py</code>. With a successful checkin, the route should respond with a <code>Checkin</code> object. Use the provided back-end <code>storage</code> service methods for creating the checkin. If there is an error, respond with a status code of 422. Validate your implementation using FastAPI’s OpenAPI <code>localhost:8000/docs</code> tool.</p></li>
+<li><p>10pts - Story E API. Implement the route to list all checkins for Story E. Validate your implementation using the OpenAPI <code>/docs</code> tool.</p></li>
+<li><p>10pts - In order to implement the back-end of Story F, deleting a registered user, you will need to extend the functionality of <code>backend/services/storage.py</code> and test your extensions. Testing expectations are covered in the next requirement. Intentionally choose meaningful names for all method(s), variable(s), and other identifier(s) used in order to add delete registration functionality to your storage service. Your documentation conventions should follow those established in the starter files.</p></li>
+<li><p>10pts - You must also implement unit tests for the prior requirement in <code>backend/test/services/storage_test.py</code>.</p></li>
+</ol>
+<p>To run your unit tests, you have two options:</p>
+<p>A. From a new terminal, change your directory to backend and try running <code>pytest</code>.</p>
+<p>B. Alternatively, use VSCode’s built-in Testing tool in the sidebar. Note that from this panel you can press the debug run on individual tests and set breakpoints in your own code.</p>
+<p>Write tests that prove/verify your delete functionality is working in the <code>storage</code> service layer before worrying about its route in the following requirement. You should have one test per feature of the expected case(s) and one per edge case. As a rule of thumb, you can interpret “one test per feature of the expected case(s)”, as making <code>assert</code>ings against <em>one object</em> or <em>one collection</em> per unit test. This hueristic helps you be sure your tests are granular and help simplify the source of potential regressions in the future.</p>
+<ol start="5" type="1">
+<li>10pts - Once you are convinced your <code>storage</code> implementation is working, add a route using the <code>DELETE</code> method to your API and test that it works via the FastAPI <code>/docs</code> explorer. Your route path should use the following convention: <code>/api/registrations/$PID</code> where <code>$PID</code> is a registered user’s 9-digit PID. If no user exists with this PID, respond with status code 404. Verify this API route works via the OpenAPI <code>/docs</code> tool.</li>
+</ol>
+<h2 id="stories">Stories</h2>
+<h3 id="story-b">Story B</h3>
+<p>As Sol Student, I want to register for the CS Experience Lab on my first visit to the colab space so that I can easily check-in in the future. (The API for this Story is already implemented in the starter code.)</p>
+<h3 id="story-c">Story C</h3>
+<p>As Merritt Manager, I want to be able to see a listing of all registered members. (The API for this Story is already implemented in the starter code.)</p>
+<h3 id="story-d">Story D</h3>
+<p>As Arden Ambassador, I want to be able to check Sol Student in using only thier PID so that I can easily check them in.</p>
+<h3 id="story-e">Story E</h3>
+<p>As Merritt Manager, I want to be able to see a listing of all checkins.</p>
+<h3 id="story-f">Story F</h3>
+<p>As Merritt Manager, I want to be able to delete registered users and their associated checkins from the system.</p>
+<h2 id="submission-instructions">Submission Instructions</h2>
+<p>Submission instructions for EX03 coming soon.</p>
+</div>
+
+       
+
+    </div> 
+
+    <div class="authors-box bg-light mt-4 py-3 ps-4">
+      <span> Contributor(s): Kris Jordan</span>
+    </div>
+  </div>
+  <div class='link-page mt-3 container'>
+    <footer>
+      <h6 class="text-center align-middle footer-text">&copy; 2023 <a href="https://krisjordan.com">Kris Jordan</a>
+        - <a
+          href="https://docs.google.com/forms/d/e/1FAIpQLScQMteEvnQpBfGsAYP5TpuqokQenhZUIf8CNvfAUUZEjMCWZQ/viewform?usp=sf_link">Feedback
+          Form</a>
+        - Made with 💛 in <a href="https://cs.unc.edu/">Chapel Hill</a></h6>
+    </footer>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+    crossorigin="anonymous"></script>
+
+  <!-- Load React. -->
+  <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+  <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</body>
+
+</html>
