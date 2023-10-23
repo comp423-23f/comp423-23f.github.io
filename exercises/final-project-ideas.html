@@ -9,7 +9,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-  <link rel="stylesheet" href="/static/styles.css?v=1698090415.0726836">
+  <link rel="stylesheet" href="/static/styles.css?v=1698092144.7709377">
 </head>
 
 <body>
@@ -52,11 +52,10 @@
                         <ul class="overview-item"><ul>
 <li><a href="#expected-level-of-difficulty">Expected Level of Difficulty</a>
 <ul>
-<li><a href="#extending-a-drop-in-reservation">Extending a Drop-in Reservation</a></li>
+<li><a href="#extending-a-drop-in-reservation-for-more-time">Extending a Drop-in Reservation for More Time</a></li>
 <li><a href="#modifying-the-assigned-seat-of-drop-in-reservations">Modifying the Assigned Seat of Drop-in Reservations</a></li>
 <li><a href="#seat-and-room-administration-views">Seat and Room Administration Views</a></li>
-<li><a href="#xl-wide-coworking-reservation-statistics">XL-wide Coworking Reservation Statistics</a></li>
-<li><a href="#multiple-usermultiple-seat-reservations">Multiple-user/multiple-seat reservations</a></li>
+<li><a href="#group-reservations">Group Reservations</a></li>
 <li><a href="#xl-friendship-system">XL Friendship System</a></li>
 <li><a href="#seat-prereservations-reservable-seats">Seat Prereservations (Reservable Seats)</a></li>
 <li><a href="#student-organization-member-management-system">Student Organization Member Management &amp; System</a></li>
@@ -64,6 +63,7 @@
 <li><a href="#high-difficulty">High Difficulty</a>
 <ul>
 <li><a href="#coworking-policy-management-and-enforcement">Coworking Policy Management and Enforcement</a></li>
+<li><a href="#xl-wide-coworking-reservation-statistics">XL-wide Coworking Reservation Statistics</a></li>
 <li><a href="#room-reservations-system">Room Reservations System</a></li>
 <li><a href="#equipment-reservation-system-e.g.-quest-3s">Equipment Reservation System (e.g. Quest 3s)</a></li>
 </ul></li>
@@ -76,7 +76,7 @@
         <div id="content" class="content col-xl-9 col-lg-9 order-2 order-lg-1 pt-3"><p>For the final project, your team will choose a feature of the Computer Science Experience Labs’ web application to focus on implementing well to serve the UNC Computer Science population. Part of your task is designing the user experience around this feature, with design and technical specification documents. Therefore, the descriptions of each project is intentionally high level and goal-oriented.</p>
 <h2 id="expected-level-of-difficulty">Expected Level of Difficulty</h2>
 <p>The following projects ideas are of similar scope and organized, roughly, by expected level of difficulty to complete.</p>
-<h3 id="extending-a-drop-in-reservation">Extending a Drop-in Reservation</h3>
+<h3 id="extending-a-drop-in-reservation-for-more-time">Extending a Drop-in Reservation for More Time</h3>
 <p>Context: Drop-in reservations are currently limited to 2-hour periods. When a drop-in reservation’s end time is within the next 30 minutes, another student is able to claim the next turn on the seat by creating a drop-in reservation that starts between 1 and 30 minutes into the future.</p>
 <p>With the given context, as Sally Student, I would like to be able to add an additional 1-hour extension to my drop-in seat reservation when no other student has created a drop-in reservation immediately following mine. I should only have this option if it truly exists, otherwise I should see some indication that my reservation will end in X minutes and the drop-in reservation cannot be extended because another student is waiting for the seat.</p>
 <h3 id="modifying-the-assigned-seat-of-drop-in-reservations">Modifying the Assigned Seat of Drop-in Reservations</h3>
@@ -84,9 +84,7 @@
 <p>With the given context, as Sally Student, I would like to have the option to choose a different available seat on the “Confirm Reservation Details” draft screen, the reservation confirmed screen, and the checked-in / active reservation screens. I should have confidence that if I cange my seat to a pre-reserved seat I know whether there is a reservation that will cut my drop-in reservation shorter than expected. As a stretch goal, I would like to have a visual representation of where my assigned seat is and where I am changing it to.</p>
 <h3 id="seat-and-room-administration-views">Seat and Room Administration Views</h3>
 <p>As Amy Ambassador or Rhonda Root, I need to be able to manage the rooms and, where applicable, such as the XL Co-lab in SN156, the seats in each room along with their features. Currently, these entities exist and data is prepopulated into the system via a script, but there is no user interface for listing, adding, editing, and deleting rooms and seats for XL administrators.</p>
-<h3 id="xl-wide-coworking-reservation-statistics">XL-wide Coworking Reservation Statistics</h3>
-<p>As Amy XL Ambassador or Rhonda Root, I need to be able to see past reservation statistics to better understand demand and usage. I need to be able to view data over dynamic date ranges, compare usage over two time periods, and any other useful analysis and visualization. I need to be able to save the parameters of common queries called “Reports” that can be opened without having to specify the parameters again. As a stretch goal, I would like to be able to make some reports or visualizations publicly viewable for display on information screens or for sharing. Another stretch goal would be giving Sally Student the ability to view their own individualized coworking statistical history.</p>
-<h3 id="multiple-usermultiple-seat-reservations">Multiple-user/multiple-seat reservations</h3>
+<h3 id="group-reservations">Group Reservations</h3>
 <p>As Sally Student, I want to drop-in to the XL with my project team and would like to be able to add my team members to a drop-in reservation’s confirmation page so that they do not have to create their own drop-in reservations. Amy Ambassador needs to be able to check us in as a group. Additionally, I should have confidence that there are enough seats available in the given seat type to make this group reservation. If insufficient seating is available, I should not be able to make the reservation.</p>
 <h3 id="xl-friendship-system">XL Friendship System</h3>
 <p>As Sally Student, I want to be able to request friendship with specific peers in the CS program. Once my friends accept the friendship request, when I view the Coworking Status, I should be able to see which of my friends are checked into the XL, if any, and the seats they are sitting at. As a stretch goal, in conjunction with the previous project idea “Multiple-user/Multiple-seat Reservations”, friends should be easy and convient to add to a reservation draft.</p>
@@ -99,6 +97,8 @@
 <h3 id="coworking-policy-management-and-enforcement">Coworking Policy Management and Enforcement</h3>
 <p>Context: Currently, there is a single policy that dictates limitations around drop-in reservations such as how long the initial duration is, how far out into the future you can reserve a drop-in, the minimum amount of time a drop-in can be for when the XL approaches its closing hour, and so on. Once pre-reservations are available, These hard-coded limits are implemented in <code>backend/services/coworking/policy.py</code></p>
 <p>As Rhonda Root, I need to be able to create, edit, and otherwise manage custom Coworking Policies. Additionally, I need to be able to add users to a specific policy, such as policies for XL Ambassadors, Club Leaders, COMP Course UTAs, and so on, who may be given additional time to pre-reserve meeting rooms or reservable desks, for example. These policy changes should impact the front-end user experience, such as how long a draft drop-in reservation is valid for before expiring, or how far into the future you can search for a pre-reservation.</p>
+<h3 id="xl-wide-coworking-reservation-statistics">XL-wide Coworking Reservation Statistics</h3>
+<p>As Amy XL Ambassador or Rhonda Root, I need to be able to see past reservation statistics to better understand demand and usage. I need to be able to view data over dynamic date ranges, compare usage over two time periods, and any other useful analysis and visualization. I need to be able to save the parameters of common queries called “Reports” that can be opened without having to specify the parameters again. As a stretch goal, I would like to be able to make some reports or visualizations publicly viewable for display on information screens or for sharing. Another stretch goal would be giving Sally Student the ability to view their own individualized coworking statistical history.</p>
 <h3 id="room-reservations-system">Room Reservations System</h3>
 <p>Context: In the Spring, most of the rooms along the back hallway of Sitterson Hall’s first floor will be reservable for group projects, group study, and more. These rooms will undergo rennovation with new carpet, paint, and furniture over winter break.</p>
 <p>As Sally Student, I need to be able to make a reservation for a group of peers (added to the reservation) and an appropriately sized room that is available when I am searching for. If multiple room options exist during desired time range, I should be able to choose which room I’d like. The experience of finding an available room for my group should be delightfully pleasant to use.</p>
