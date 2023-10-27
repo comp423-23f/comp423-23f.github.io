@@ -9,7 +9,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-  <link rel="stylesheet" href="/static/styles.css?v=1698329849.0292277">
+  <link rel="stylesheet" href="/static/styles.css?v=1698412560.6369545">
 </head>
 
 <body>
@@ -50,13 +50,6 @@
                 <div id="overview-links">
                     <div id="TOC" role="doc-toc">
                         <ul class="overview-item"><ul>
-<li><a href="#development-environment">Development Environment</a>
-<ul>
-<li><a href="#initial-development-environment">Initial Development Environment</a></li>
-<li><a href="#github-repository-configuration">GitHub Repository Configuration</a></li>
-<li><a href="#setting-up-your-development-environment">Setting up your Development Environment</a></li>
-<li><a href="#understanding-user-authentication-and-authorization">Understanding User Authentication and Authorization</a></li>
-<li><a href="#sprint-0-expectations">Sprint 0 Expectations</a></li>
 <li><a href="#staging-server-environment-devops---at-least-two-members-of-team-should-pair-on-this">Staging Server Environment (DevOps - At Least Two Members of Team Should Pair on This)</a>
 <ul>
 <li><a href="#cleaning-up-from-ex03">Cleaning Up from EX03</a></li>
@@ -69,102 +62,13 @@
 <li><a href="#resetting-the-database">Resetting the Database</a></li>
 <li><a href="#setting-up-push-to-deploy-webhooks">Setting up Push-to-Deploy Webhooks</a></li>
 </ul></li>
-</ul></li>
 </ul>
 </</ul>
                     </div>
                 </div>
             </div>
         </div>
-        <div id="content" class="content col-xl-9 col-lg-9 order-2 order-lg-1 pt-3"><h1 id="development-environment">Development Environment</h1>
-<h2 id="initial-development-environment">Initial Development Environment</h2>
-<ol type="1">
-<li>In a terminal on your host system, not within VSCode, create a new directory with the name of your team’s final project repository and <code>cd</code> into it:
-<ul>
-<li><code>mkdir comp423-final-project</code></li>
-<li><code>cd comp423-final-project</code></li>
-</ul></li>
-<li>Initialize the new empty directory as a <code>git</code> repository:
-<ul>
-<li><code>git init</code></li>
-</ul></li>
-<li>Add a git remote repository named <code>upstream</code> bound to the public, open source CSXL web app repository:
-<ul>
-<li><code>git remote add upstream https://github.com/unc-csxl/csxl.unc.edu.git</code></li>
-</ul></li>
-<li>Pull the <code>main</code> branch from <code>upstream</code>:
-<ul>
-<li><code>git pull upstream main</code></li>
-</ul></li>
-<li>Add a git remote repository named <code>origin</code> bound to your team’s private final project repository. You will need to find the correct repository URL. Open your team’s final project repository on GitHub in a web browser, click the down triangle on the green Code button, and copy the Clone URL. Use this URL in the placeholder below:
-<ul>
-<li><code>git remote add origin TEAM_REPO_URL_PLACEHOLDER</code></li>
-</ul></li>
-<li>Push <code>main</code> to <code>origin</code>. If you are the first member on the team to do this, you will see the repository’s history being pushed up to GitHub. If you are not the first member on the team to do this, you may see an error or “Everything up to date”:
-<ul>
-<li><code>git push origin main</code></li>
-</ul></li>
-<li>Your team will work off of a staging branch named <code>stage</code>, rather than the <code>main</code> branch. Go ahead and establish a <code>stage</code> branch locally and push it:
-<ul>
-<li><code>git fetch --all</code></li>
-<li><code>git switch --create stage</code></li>
-<li><code>git pull origin stage</code></li>
-<li><code>git push origin stage</code></li>
-</ul></li>
-</ol>
-<h2 id="github-repository-configuration">GitHub Repository Configuration</h2>
-<p>Only one member of your team needs to setup the following repository branch settings:</p>
-<ol type="1">
-<li>Settings &gt; Branches</li>
-<li>Change Default Branch to <code>stage</code>
-<ul>
-<li>Press the swap/switch button (not the pencil!) and select <code>stage</code></li>
-<li>If you do not see <code>stage</code>, be sure you completed all the steps above</li>
-</ul></li>
-<li>Add Branch Protection Rule to prevent any pushing to <code>main</code>
-<ol type="1">
-<li>Branch name pattern: <code>main</code></li>
-<li>(Check) Lock branch</li>
-<li>(Check) Do not allow bypassing the above settings</li>
-<li>Save Changes</li>
-</ol></li>
-<li>Add Branch Protection Rule to enforce a professional team workflow on <code>stage</code>
-<ol type="1">
-<li>Branch name pattern: <code>stage</code></li>
-<li>(Check) Require a pull request before merging
-<ol type="1">
-<li>(Check) Require approvals: 1 required</li>
-<li>(Check) Dismiss stale pull request approvals when new commits are pushed</li>
-<li>(Check) Require approval of the most recent reviewable push</li>
-</ol></li>
-<li>(Check) Require conversation resolution before merging</li>
-<li>(Check) Require linear history</li>
-<li>(Check) Do not allow bypassing the above settings</li>
-<li>Save Changes</li>
-</ol></li>
-</ol>
-<h2 id="setting-up-your-development-environment">Setting up your Development Environment</h2>
-<p>Open your project locally, without opening it in a Dev Container at first, and follow the instructions to get started found in the project’s <code>docs</code> directory: <code>docs/get_started.md</code></p>
-<h2 id="understanding-user-authentication-and-authorization">Understanding User Authentication and Authorization</h2>
-<p>See the <a href="https://github.com/unc-csxl/csxl.unc.edu/blob/main/docs/auth.md">official documentation on CSXL.unc.edu Authentication and Authorization</a> for feature development.</p>
-<h2 id="sprint-0-expectations">Sprint 0 Expectations</h2>
-<ol type="1">
-<li><p>“Minimum Viable” Data Models, Entities, and Dev Data merged into <code>stage</code> branch and added to database via <code>backend/script/reset_database.py</code>.</p></li>
-<li><p>Implement <em>at least one</em> story across all layers, running, and demoable on CloudApps.</p>
-<ul>
-<li>Add an entry to NavigationComponent on the front-end so that you can reach your feature from the sidebar.</li>
-<li>Aiming for a “view” story here, as opposed to an update/edit story, is advisable. For example, viewing upcoming workshops, a list of clubs, rooms with availability, etc.</li>
-</ul></li>
-<li><p>Everything committed and merged from #2 is properly documented, tested, and up to standards.</p>
-<ul>
-<li>Backend service layer needs unit tests that cover methods all methods and functionality implemented.</li>
-<li>Backend service layer classes should not have any HTTP concerns. Similarly, your FastAPI routes should not have any SQLAlchemy or Entity concerns. These two layers are integrated via Pydantic models.</li>
-</ul></li>
-<li><p>Everyone is expected to make at least one Pull Request. The Pull Request should have at least one additional improvement commit that improves based on a Code Reviewer’s suggestions. This PR should ultimatey be approved and merged into Stage ahead of the deadline. After final approval, it is your responsibility to merge the changes in and write the final commit message for your merge. When merging, you should “Squash and Merge” the commits into a single, well documented commit.</p></li>
-<li><p>Everyone is expected to serve as a Code Reviewer for at least one Pull Request. As a Code Reviewer, you are expected to find and request at least one improvement to the PR. Once the PR author addresses your concerns with improvement commit(s), you should review and approve the PR author to merge in the changes.</p></li>
-<li><p>Significant effort and care has gone into managing the project’s board with Cards/Issues. All members are actively participating in the GitHub project. Best practices are being followed, e.g. commit descriptions and change requests, per the assigned readings (Google Dev Engineering Practices).</p></li>
-</ol>
-<h2 id="staging-server-environment-devops---at-least-two-members-of-team-should-pair-on-this">Staging Server Environment (DevOps - At Least Two Members of Team Should Pair on This)</h2>
+        <div id="content" class="content col-xl-9 col-lg-9 order-2 order-lg-1 pt-3"><h2 id="staging-server-environment-devops---at-least-two-members-of-team-should-pair-on-this">Staging Server Environment (DevOps - At Least Two Members of Team Should Pair on This)</h2>
 <p>Choose one team member’s CloudApps namespace to setup as the staging environment where your team’s work will be hosted in the cloud. Other team members will be added to this namespace as collaborators so everyone has access.</p>
 <p>In establishing the staging environment on our cloud infrastructure, we will work from the bottom up. We will start with the database server, then add secrets needed to build and run the application, then add the application, and finally add the route to expose the application to the internet.</p>
 <h3 id="cleaning-up-from-ex03">Cleaning Up from EX03</h3>

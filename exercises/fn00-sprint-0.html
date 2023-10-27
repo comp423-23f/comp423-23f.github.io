@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> SP00 - Sprint 0 - Final Project - COMP423 - 23S</title>
+  <link rel="icon" type="image/png" href="/static/tabbrand.png" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="/static/styles.css?v=1698412559.8629262">
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-1 fixed-top">
+    <div class="container">
+      <a href="/" class="navbar-brand">COMP423</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navmenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link " href="/">agenda</a>
+          </li>
+          <li class="nav-item">
+            <a href="/support" class="nav-link">support</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div id="exercises-page" class="container">
+    <div class="row pt-4">
+      <div class="col-12">
+        <h2>SP00 - Sprint 0 - Final Project</h2>
+        <hr class="title" />
+      </div>
+    </div>
+
+    <script src="/static/scripts/toggle-handler.js"></script>
+    
+    <div class="row px-4">
+        <div id="box" class="toc col-xl-3 col-lg-3 order-1 order-lg-2" role="doc-toc">
+            <div id="menu-overview" class="link-page box">
+                <button id="overview-button" class="btn btn-ov" onclick="hideshow()">Overview  <img id="button-img" class="filter-icon" src="/static/components/Itinerary/arrow-up.svg" style="height:15px; padding-left: 4px;"></button>
+                <div id="overview-links">
+                    <div id="TOC" role="doc-toc">
+                        <ul class="overview-item"><ul>
+<li><a href="#sprint-0-expectations">Sprint 0 Expectations</a></li>
+<li><a href="#the-design-document">1. The Design Document</a></li>
+<li><a href="#establish-workflow-project-management-and-staging-infrastructure">2. Establish Workflow, Project Management, and Staging Infrastructure</a></li>
+<li><a href="#familiarize-yourself-with-the-codebase">3. Familiarize Yourself with the Codebase</a></li>
+</ul>
+</</ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="content" class="content col-xl-9 col-lg-9 order-2 order-lg-1 pt-3"><h2 id="sprint-0-expectations">Sprint 0 Expectations</h2>
+<p>The goal of this Sprint is three-fold:</p>
+<ol type="1">
+<li><p>To produce a high-level design document for your feature.</p></li>
+<li><p>To establish your team’s workflow, project management practices.</p></li>
+<li><p>To establish your staging (“production”) infrastructure and begin deploying new code to it.</p></li>
+</ol>
+<h2 id="the-design-document">1. The Design Document</h2>
+<p>Your team will produce a design document for your feature. This document should be a markdown file in the <code>docs</code> directory of your team’s repository.</p>
+<p>Specific <code>git</code> / GitHub Workflow Expectations exist for editing this document and will be graded as part of this sprint. The document should be named after your feature, for example <code>docs/feature-name-design-doc.md</code>. Your team should collaborate on this document in a branch initially named <code>design-doc</code>. After the initial draft is pushed to this branch, <em>every member of the team</em> should create a new branch off of <code>design-doc</code> named <code>design-doc/ONYEN</code> where <code>ONYEN</code> is your UNC ONYEN. For example, <code>design-doc/krisj</code>. Each team member should make contributions to the document in their own branch, then open a pull request to merge their changes into <code>design-doc</code>. Every team member should perform a review, requesting at least one minor improvement in each review, and then after the improvement is made, approving the PR and merging the changes into <code>design-doc</code>. When the team is ready to submit the design document, the team should open a pull request to merge <code>design-doc</code> into <code>stage</code>.</p>
+<p>The document should contain well written:</p>
+<ol type="1">
+<li><p><strong>Overview</strong>: Restate the value and need of the feature in your team’s own words.</p></li>
+<li><p><strong>Key Personas</strong>: Describe the key personas your feature serves. What are their needs and goals with your feature?</p></li>
+<li><p><strong>Wireframes / Mockups</strong>: Include wireframes or mockups of your feature’s user interfaces. These can be hand-drawn or created with a tool like <a href="https://www.figma.com/">Figma</a>.</p></li>
+<li><p><strong>User Stories</strong> organized by persona and by frequency of use.</p></li>
+<li><p><strong>Technical Implementation Opportunities and Planning</strong></p>
+<ol type="1">
+<li>What specific areas of the existing code base will you directly depend upon, extend, or integrate with?</li>
+<li>What additional models, or changes to existing models, do you foresee needing (if any)?</li>
+<li>Considering your most-frequently used and critical user stories, what API / Routes do you foresee modifying or needing to add?</li>
+<li>What concerns exist for security and privacy of data? Should the capabilities you are implementing be specific to only certaain users or roles? (For example: When Sally Student makes a reservation, only Sally Student or Amy Ambassador should be able to cancel the reservation. Another student, such as Sam Student, should not be able to cancel Sally’s reservation.)</li>
+</ol></li>
+</ol>
+<h2 id="establish-workflow-project-management-and-staging-infrastructure">2. Establish Workflow, Project Management, and Staging Infrastructure</h2>
+<h2 id="familiarize-yourself-with-the-codebase">3. Familiarize Yourself with the Codebase</h2>
+<ol start="4" type="1">
+<li><p>Everyone is expected to make at least one Pull Request. The Pull Request should have at least one additional improvement commit that improves based on a Code Reviewer’s suggestions. This PR should ultimatey be approved and merged into Stage ahead of the deadline. After final approval, it is your responsibility to merge the changes in and write the final commit message for your merge. When merging, you should “Squash and Merge” the commits into a single, well documented commit.</p></li>
+<li><p>Everyone is expected to serve as a Code Reviewer for at least one Pull Request. As a Code Reviewer, you are expected to find and request at least one improvement to the PR. Once the PR author addresses your concerns with improvement commit(s), you should review and approve the PR author to merge in the changes.</p></li>
+<li><p>Significant effort and care has gone into managing the project’s board with Cards/Issues. All members are actively participating in the GitHub project. Best practices are being followed, e.g. commit descriptions and change requests, per the assigned readings (Google Dev Engineering Practices).</p></li>
+</ol>
+</div>
+
+       
+
+    </div> 
+
+    <div class="authors-box bg-light mt-4 py-3 ps-4">
+      <span> Contributor(s): Kris Jordan</span>
+    </div>
+  </div>
+  <div class='link-page mt-3 container'>
+    <footer>
+      <h6 class="text-center align-middle footer-text">&copy; 2023 <a href="https://krisjordan.com">Kris Jordan</a>
+        - <a
+          href="https://docs.google.com/forms/d/e/1FAIpQLScQMteEvnQpBfGsAYP5TpuqokQenhZUIf8CNvfAUUZEjMCWZQ/viewform?usp=sf_link">Feedback
+          Form</a>
+        - Made with 💛 in <a href="https://cs.unc.edu/">Chapel Hill</a></h6>
+    </footer>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+    crossorigin="anonymous"></script>
+
+  <!-- Load React. -->
+  <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+  <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</body>
+
+</html>
