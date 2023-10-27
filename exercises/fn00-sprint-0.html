@@ -9,7 +9,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-  <link rel="stylesheet" href="/static/styles.css?v=1698420922.7646008">
+  <link rel="stylesheet" href="/static/styles.css?v=1698435279.827082">
 </head>
 
 <body>
@@ -52,8 +52,13 @@
                         <ul class="overview-item"><ul>
 <li><a href="#sprint-0-expectations">Sprint 0 Expectations</a></li>
 <li><a href="#the-design-document">1. The Design Document</a></li>
-<li><a href="#establish-workflow-project-management-and-staging-infrastructure">2. Establish Workflow, Project Management, and Staging Infrastructure</a></li>
-<li><a href="#familiarize-yourself-with-the-codebase">3. Familiarize Yourself with the Codebase</a></li>
+<li><a href="#establish-development-environments-and-staging-infrastructure-on-carolina-cloudapps">2. Establish Development Environments and Staging Infrastructure on Carolina CloudApps</a></li>
+<li><a href="#practice-project-management-best-practices.">3. Practice project management best practices.</a></li>
+<li><a href="#to-gain-familiarity-with-the-code-base-and-git-workflow-to-begin-making-progress.">4. To gain familiarity with the code base and <code>git</code> workflow to begin making progress.</a>
+<ul>
+<li><a href="#front-end">Front-end</a></li>
+<li><a href="#back-end">Back-end</a></li>
+</ul></li>
 </ul>
 </</ul>
                     </div>
@@ -61,36 +66,73 @@
             </div>
         </div>
         <div id="content" class="content col-xl-9 col-lg-9 order-2 order-lg-1 pt-3"><h2 id="sprint-0-expectations">Sprint 0 Expectations</h2>
-<p>The goal of this Sprint is three-fold:</p>
+<p>The goals of this Sprint are to:</p>
 <ol type="1">
 <li><p>To produce a high-level design document for your feature.</p></li>
-<li><p>To establish your team’s workflow, project management practices.</p></li>
-<li><p>To establish your staging (“production”) infrastructure and begin deploying new code to it.</p></li>
+<li><p>For all members to have their development environment setup and to establish your staging (“production”) infrastructure and begin deploying code to it.</p></li>
+<li><p>To practice expected team workflow and project management practices.</p></li>
+<li><p>To gain familiarity with the code base and begin making progress.</p></li>
 </ol>
 <h2 id="the-design-document">1. The Design Document</h2>
+<p>The Design Document has an intermediary deadline of Wednesday, November 1st.</p>
 <p>Your team will produce a design document for your feature. This document should be a markdown file in the <code>docs</code> directory of your team’s repository.</p>
 <p>Specific <code>git</code> / GitHub Workflow Expectations exist for editing this document and will be graded as part of this sprint. The document should be named after your feature, for example <code>docs/feature-name-design-doc.md</code>. Your team should collaborate on this document in a branch initially named <code>design-doc</code>. After the initial draft is pushed to this branch, <em>every member of the team</em> should create a new branch off of <code>design-doc</code> named <code>design-doc/ONYEN</code> where <code>ONYEN</code> is your UNC ONYEN. For example, <code>design-doc/krisj</code>. Each team member should make contributions to the document in their own branch, then open a pull request to merge their changes into <code>design-doc</code>. Every team member should perform a review, requesting at least one minor improvement in each review, and then after the improvement is made, approving the PR and merging the changes into <code>design-doc</code>. When the team is ready to submit the design document, the team should open a pull request to merge <code>design-doc</code> into <code>stage</code>.</p>
-<p>The document should contain well written:</p>
-<ol type="1">
+<p>ChatGPT and/or other generative AI tools are not permissible for use in writing this design document. There are at least 3 of you on the team, but generally 4, so between you all there is more than ample time and English-writing ability to craft this relatively short document. The primary value of this document is the thinking, team communication, and internalization of the problem you are trying to solve <em>more than the resulting document itself</em>. If writing produced by generative tools is detected in your design document submission, your group risks earning a 0% for this Sprint which amounts to 12.5% of your final course grade.</p>
+<p>The markdown document file should contain well written:</p>
+<ol start="0" type="1">
+<li><p><strong>Title &amp; Team</strong>: Title Your Feature (It can be more creative than the requested CFP Titles) and attribute your team members.</p></li>
 <li><p><strong>Overview</strong>: Restate the value and need of the feature in your team’s own words.</p></li>
 <li><p><strong>Key Personas</strong>: Describe the key personas your feature serves. What are their needs and goals with your feature?</p></li>
-<li><p><strong>Wireframes / Mockups</strong>: Include wireframes or mockups of your feature’s user interfaces. These can be hand-drawn or created with a tool like <a href="https://www.figma.com/">Figma</a>.</p></li>
-<li><p><strong>User Stories</strong> organized by persona and by frequency of use.</p></li>
+<li><p><strong>User Stories</strong> organized by persona, necessity for a minimum-viable feature, and frequency/importance of use.</p></li>
+<li><p><strong>Wireframes / Mockups</strong>: Include rough wireframes of your feature’s user interfaces for the most critical user stories, along with brief descriptions of what is going on. These can be hand-drawn, made in PowerPoint/KeyNote, or created with a tool like <a href="https://www.figma.com/">Figma</a>. <em>To see an example of a detailed wireframe Kris made this summer before building the drop-in feature, see this <a href="https://www.figma.com/file/UFyoGbahicMYHErfAMmWXR/XL-Coworking-Application?type=design&amp;node-id=0%3A1&amp;mode=design&amp;t=2QCW04OFXpHIbvng-1">Figma board</a>. You will notice the final implementation is not 1:1 with the original wireframe!</em></p></li>
 <li><p><strong>Technical Implementation Opportunities and Planning</strong></p>
 <ol type="1">
 <li>What specific areas of the existing code base will you directly depend upon, extend, or integrate with?</li>
+<li>What planned page components and widgets, per the assigned reading, do you anticipate needing in your feature’s frontend?</li>
 <li>What additional models, or changes to existing models, do you foresee needing (if any)?</li>
 <li>Considering your most-frequently used and critical user stories, what API / Routes do you foresee modifying or needing to add?</li>
 <li>What concerns exist for security and privacy of data? Should the capabilities you are implementing be specific to only certaain users or roles? (For example: When Sally Student makes a reservation, only Sally Student or Amy Ambassador should be able to cancel the reservation. Another student, such as Sam Student, should not be able to cancel Sally’s reservation.)</li>
 </ol></li>
 </ol>
-<h2 id="establish-workflow-project-management-and-staging-infrastructure">2. Establish Workflow, Project Management, and Staging Infrastructure</h2>
-<h2 id="familiarize-yourself-with-the-codebase">3. Familiarize Yourself with the Codebase</h2>
-<ol start="4" type="1">
-<li><p>Everyone is expected to make at least one Pull Request. The Pull Request should have at least one additional improvement commit that improves based on a Code Reviewer’s suggestions. This PR should ultimatey be approved and merged into Stage ahead of the deadline. After final approval, it is your responsibility to merge the changes in and write the final commit message for your merge. When merging, you should “Squash and Merge” the commits into a single, well documented commit.</p></li>
-<li><p>Everyone is expected to serve as a Code Reviewer for at least one Pull Request. As a Code Reviewer, you are expected to find and request at least one improvement to the PR. Once the PR author addresses your concerns with improvement commit(s), you should review and approve the PR author to merge in the changes.</p></li>
-<li><p>Significant effort and care has gone into managing the project’s board with Cards/Issues. All members are actively participating in the GitHub project. Best practices are being followed, e.g. commit descriptions and change requests, per the assigned readings (Google Dev Engineering Practices).</p></li>
+<h2 id="establish-development-environments-and-staging-infrastructure-on-carolina-cloudapps">2. Establish Development Environments and Staging Infrastructure on Carolina CloudApps</h2>
+<p>The Staging Infrastructure on CloudApps an intermediary deadline of Wednesday, November 1st.</p>
+<p>All members of the team should have a working development environment running on their local machine. We began this process in class on <a href="https://youtube.com/live/FSYGfYctxXQ?feature=share">Wednesday, October 25th</a>. Steps for setting up a Team Member’s Development Repository can be found here: <a href="http://localhost:5000/exercises/final-project-setup.html#setting-up-team-members-development-repositories" class="uri">http://localhost:5000/exercises/final-project-setup.html#setting-up-team-members-development-repositories</a></p>
+<p>All members of the team should clean-up their EX04 cloud deployment to make room for deploying the final project. The steps to follow are:</p>
+<ol type="1">
+<li>Login to OpenShift (remember: off-campus access requires connecting to the VPN)</li>
+<li>Open a Terminal on your Host Machine (not the VSCode Dev Env!)</li>
+<li>Login to the OpenShift Terminal on your Host Machine (not the VSCode DevEnv!)</li>
+<li>Navigate to your project’s directory in the terminal</li>
+<li>Login to OpenShift’s <code>oc</code> program you installed for EX03. You will need a new token from OpenShift: Click your name after logging in, select Copy Login Command, Display Token, copy the <code>oc login ...</code> line, paste into Terminal.</li>
+<li>Go ahead and delete your EX03 deployment now that everything is graded:</li>
 </ol>
+<ul>
+<li>Run: <code>oc delete all --selector app=comp423-ex04</code></li>
+</ul>
+<p>Your team should then <a href="/exercises/final-project-cloud.html">establish your staging environment(s) on Carolina Cloud Apps, as described here</a>.</p>
+<h2 id="practice-project-management-best-practices.">3. Practice project management best practices.</h2>
+<p>Evidence of using PM best practices has an intermediary deadline of Wednesday, November 1st.</p>
+<p>Team tasks that are delegated out should be added to your final project board(s), given meaningful descriptions or subtasks, assigned to appropriate team member(s), and updated as progress is made. All cards on the project should also be linked to issues in your team repository. This practice is a slight deviation from industry, where non-codebase related project management and tasking may occur in another tool, but for simplicity purposes we will keep all project management concerns in GitHub to gain comfort with the tool and for standardization in the class.</p>
+<p>Changes to the codebase, as described in the design document expectation, should be made on branches and pushed to branches before being Pull Requested and Code Reviewed by a team member. This will simultaneously <em>slow down progress</em> and <em>increase your team feature’s quality and increase shared understanding of the codebase</em> which is a worthwhile trade-off in software engineering.</p>
+<h2 id="to-gain-familiarity-with-the-code-base-and-git-workflow-to-begin-making-progress.">4. To gain familiarity with the code base and <code>git</code> workflow to begin making progress.</h2>
+<p>This first sprint is all about <em>planning</em> before <em>programming</em> and on-boarding with a new code base. We do want to promote <em>some</em> progress, though, to promote a sense of progress and create some momentum going into the next sprint.</p>
+<p><em>After your design document is complete and submitted</em>, identify what the most pressing areas of progress toward your most important story minimally look like. Here are our suggestions:</p>
+<h3 id="front-end">Front-end</h3>
+<ol type="1">
+<li>Add a new Component Page and/or Widget(s) to the front-end. All UI must use standard <a href="https://material.angular.io/">Angular Material UI</a> library widgets wherever possible.</li>
+<li>Add an Angular Service to the front-end and stub out method signatures with dummy data and <code>alert</code> messages.</li>
+<li>Connect interactivity of Step 1 to the front-end service methods of Step 2.</li>
+<li>Be sure your Component Page and/or Widget(s) are navigable through the application (if a full page: add an appropriate link or sidebar link, if a widget: add it where it will ultimately show up)</li>
+</ol>
+<h3 id="back-end">Back-end</h3>
+<ol type="1">
+<li>Add new route(s) to the API as will be needed by the front-end component/widgets above.</li>
+<li>Extend with additional fields or add new Pydantic data models for the route(s).</li>
+<li>Stub out responses such that your <code>/docs</code> OpenAPI user interface responds with expected model data.</li>
+</ol>
+<p>You should divvy up tasks on your project board and pair program. We encourage everyone tries to contribute something small to <em>both</em> the front and backend tasks. Everyone is expected to make at least one Pull Request outside of the design spec. The Pull Request should have at least one additional improvement commit that improves based on a Code Reviewer’s suggestions. This PR should ultimatey be approved and merged into Stage ahead of the deadline. After final approval, it is the author’s responsibility to merge the changes in and write the final commit message for your merge. When merging, you should “Squash and Merge” the commits into a single, well documented commit. Commit messages should follow the expectations of our reading on writing commit messages well.</p>
+<p>Everyone is expected to serve as a Code Reviewer for at least one Pull Request. As a Code Reviewer, you are expected to find and request at least one improvement to the PR. Once the PR author addresses your concerns with improvement commit(s), you should review and approve the PR author to merge in the changes.</p>
+<p>The small steps of progress made in this section will be due by Sunday, November 5th at 11:59pm and must be successfully deployed to your staging environment and demoable in class on Monday, November 6th.</p>
 </div>
 
        
