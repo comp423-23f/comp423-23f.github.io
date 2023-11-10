@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> SP01 - Sprint 1 - Final Project - COMP423 - 23S</title>
+  <link rel="icon" type="image/png" href="/static/tabbrand.png" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="/static/styles.css?v=1699650213.2094705">
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-1 fixed-top">
+    <div class="container">
+      <a href="/" class="navbar-brand">COMP423</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navmenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link " href="/">agenda</a>
+          </li>
+          <li class="nav-item">
+            <a href="/support" class="nav-link">support</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div id="exercises-page" class="container">
+    <div class="row pt-4">
+      <div class="col-12">
+        <h2>SP01 - Sprint 1 - Final Project</h2>
+        <hr class="title" />
+      </div>
+    </div>
+
+    <script src="/static/scripts/toggle-handler.js"></script>
+    
+    <div class="row px-4">
+        <div id="box" class="toc col-xl-3 col-lg-3 order-1 order-lg-2" role="doc-toc">
+            <div id="menu-overview" class="link-page box">
+                <button id="overview-button" class="btn btn-ov" onclick="hideshow()">Overview  <img id="button-img" class="filter-icon" src="/static/components/Itinerary/arrow-up.svg" style="height:15px; padding-left: 4px;"></button>
+                <div id="overview-links">
+                    <div id="TOC" role="doc-toc">
+                        <ul class="overview-item"><ul>
+<li><a href="#two-important-stories-end-to-end.">Two important stories, end-to-end.</a>
+<ul>
+<li><a href="#x-end-to-end-story-expectations">2x End-to-end Story Expectations</a></li>
+<li><a href="#treat-stage-branch-as-production-and-never-break-stageproduction">Treat Stage Branch as <em>Production</em> and <em>Never Break Stage/Production</em></a></li>
+<li><a href="#team-project-management">Team Project Management</a></li>
+<li><a href="#technical-specification-documentation">Technical Specification Documentation</a></li>
+<li><a href="#extra-credit-1-point---catch-your-stage-branch-up-with-csxl.unc.edu-production">Extra-Credit (1 point) - Catch Your <code>stage</code> Branch up with csxl.unc.edu Production</a></li>
+</ul></li>
+</ul>
+</</ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="content" class="content col-xl-9 col-lg-9 order-2 order-lg-1 pt-3"><h2 id="two-important-stories-end-to-end.">Two important stories, end-to-end.</h2>
+<p>This sprint’s goal is to develop at least two fundamental, different stories end-to-end. Tackling additional stories to get ahead is OK, but be sure your two most valuable and important stories are done very well and following all expectations of this sprint.</p>
+<p>On Sunday, November 12th, there’s an intermediate deadline of one story running end-to-end in staging.</p>
+<p>On Monday 11/20, you will demo these stories running on your cloud staging server in-class.</p>
+<h3 id="x-end-to-end-story-expectations">2x End-to-end Story Expectations</h3>
+<ol type="1">
+<li>Interactive, reproducible demo from the front-end in staging following concrete instructions.</li>
+<li>Actions taken in the front-end persist in the database.</li>
+<li>Well-factored, idiomatic layers between angular template(s) and entities (component/widget class, front-end service, API route, backend service).</li>
+<li>Full test coverage of unit tests for your feature’s impacted backend service(s). See the <a href="https://github.com/unc-csxl/csxl.unc.edu/blob/main/docs/testing.md">testing docs for more info on testing tools and test coverage report generation</a>.</li>
+</ol>
+<h3 id="treat-stage-branch-as-production-and-never-break-stageproduction">Treat Stage Branch as <em>Production</em> and <em>Never Break Stage/Production</em></h3>
+<p>Don’t merge your work into <code>stage</code> until it is functional and ready for launch. Work in feature branches until then, branch off of feature branches for making progress on the feature (and PR/merge back into the feature branch!) and only merge a feature into <code>stage</code> once it is ready. After any merge to <code>stage</code>, your team should be monitoring your Cloud Apps deployment for build success, database reset post-deploy, and testing that it is functional. Starting on Monday, November 13th, if your CloudApps stage is broken we will begin applying penalties to sprints. For this course, your stage branch is effectively <code>main</code> and production; breaking production in a real-world setting is a <em>red alert</em> scenario where you want <em>all hands on deck</em> to fix the issue and get your staging environment operational again. The best way to avoid bringing down <code>stage</code> is to verify that changes work on a <em>code reviewer’s DevContainer</em>, not just the original PR author’s, before merging changes in.</p>
+<h3 id="team-project-management">Team Project Management</h3>
+<p>Continue utilizing the expected tools and workflow of the course:</p>
+<ol type="1">
+<li>Maintain your Project Board with cards linked to issues, assigned to team member(s), with descriptive titles for all cards/issues</li>
+<li>Perform work on branches off of stage</li>
+<li>Perform pull requests with well written titles and messages and request code reviews from team members</li>
+<li>Make effortful and helpful code reviews for your team mates, helpfully maintaining high standards of code</li>
+<li>Squash and merge approved PRs into <code>stage</code></li>
+</ol>
+<h3 id="technical-specification-documentation">Technical Specification Documentation</h3>
+<p>Add a new markdown document in your <code>docs</code> directory following the naming convention of your design document from Sprint 0, but with a name suffix of <code>-spec.md</code>. You will not author a full technical specification, but</p>
+<ol type="1">
+<li>Descriptions and sample data representations of new or modified model representation(s) and API routes supporting your feature’s stories</li>
+<li>Description of underlying database/entity-level representation decisions</li>
+<li>At least one technical and one user experience design choice your team weighed the trade-offs with justification for the decision (we chose X over Y, because…)</li>
+<li>Development concerns: How does a new developer get started on your feature? Brief guide/tour of the files and concerns they need to understand to get up-to-speed.</li>
+</ol>
+<h3 id="extra-credit-1-point---catch-your-stage-branch-up-with-csxl.unc.edu-production">Extra-Credit (1 point) - Catch Your <code>stage</code> Branch up with csxl.unc.edu Production</h3>
+<p>The TAs are not permitted to assist with this extra credit opportunity in or outside of Office Hours.</p>
+<p>Some PRs have landed in production at <code>csxl.unc.edu</code> since you began Sprint 0: <a href="https://github.com/unc-csxl/csxl.unc.edu/commits/main" class="uri">https://github.com/unc-csxl/csxl.unc.edu/commits/main</a></p>
+<p>To earn this point of extra credit, you should catch your stage branch up to <code>upstream/main</code> such that you have commit <code>26e033e</code>, or later, in your <code>stage</code> branch. You may need to resolve conflicts. When creating a PR for this catch-up branch, <strong>rather than squashing and merging into your <code>stage</code> in this instance you should use the “Create a Merge Commit” strategy</strong>. This strategy will retain the history from production’s main branch.</p>
+<p>This is good practice, and easier to achieve, if it’s done semi-regularly. Additionally, this serves as a prerequisite to being considered for merging your team’s features into production after the semester ends.</p>
+</div>
+
+       
+
+    </div> 
+
+    <div class="authors-box bg-light mt-4 py-3 ps-4">
+      <span> Contributor(s): Kris Jordan</span>
+    </div>
+  </div>
+  <div class='link-page mt-3 container'>
+    <footer>
+      <h6 class="text-center align-middle footer-text">&copy; 2023 <a href="https://krisjordan.com">Kris Jordan</a>
+        - <a
+          href="https://docs.google.com/forms/d/e/1FAIpQLScQMteEvnQpBfGsAYP5TpuqokQenhZUIf8CNvfAUUZEjMCWZQ/viewform?usp=sf_link">Feedback
+          Form</a>
+        - Made with 💛 in <a href="https://cs.unc.edu/">Chapel Hill</a></h6>
+    </footer>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+    crossorigin="anonymous"></script>
+
+  <!-- Load React. -->
+  <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+  <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</body>
+
+</html>
