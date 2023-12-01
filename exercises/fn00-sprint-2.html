@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> SP02 - Sprint 2 - Final Project - COMP423 - 23S</title>
+  <link rel="icon" type="image/png" href="/static/tabbrand.png" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="/static/styles.css?v=1701462773.430245">
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-1 fixed-top">
+    <div class="container">
+      <a href="/" class="navbar-brand">COMP423</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navmenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link " href="/">agenda</a>
+          </li>
+          <li class="nav-item">
+            <a href="/support" class="nav-link">support</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div id="exercises-page" class="container">
+    <div class="row pt-4">
+      <div class="col-12">
+        <h2>SP02 - Sprint 2 - Final Project</h2>
+        <hr class="title" />
+      </div>
+    </div>
+
+    <script src="/static/scripts/toggle-handler.js"></script>
+    
+    <div class="row px-4">
+        <div id="box" class="toc col-xl-3 col-lg-3 order-1 order-lg-2" role="doc-toc">
+            <div id="menu-overview" class="link-page box">
+                <button id="overview-button" class="btn btn-ov" onclick="hideshow()">Overview  <img id="button-img" class="filter-icon" src="/static/components/Itinerary/arrow-up.svg" style="height:15px; padding-left: 4px;"></button>
+                <div id="overview-links">
+                    <div id="TOC" role="doc-toc">
+                        <ul class="overview-item"><ul>
+<li><a href="#sprint-2-expectations">Sprint 2 Expectations</a>
+<ul>
+<li><a href="#expectation-1-polish-for-end-user-stories">Expectation 1: Polish for End-user Stories</a></li>
+<li><a href="#expectation-2-improve-the-information-design-of-your-documentation">Expectation 2: Improve the Information Design of your Documentation</a></li>
+<li><a href="#expectation-3-project-management-standards">Expectation 3: Project Management &amp; Standards</a></li>
+<li><a href="#extra-credit-1-point---catch-your-stage-branch-up-with-csxl.unc.edu-production">Extra-Credit (1 point) - Catch Your <code>stage</code> Branch up with csxl.unc.edu Production</a></li>
+</ul></li>
+</ul>
+</</ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="content" class="content col-xl-9 col-lg-9 order-2 order-lg-1 pt-3"><h2 id="sprint-2-expectations">Sprint 2 Expectations</h2>
+<p>This sprint is about arriving at a well implemented, tested, and thoughtful production-quality feature.</p>
+<h3 id="expectation-1-polish-for-end-user-stories">Expectation 1: Polish for End-user Stories</h3>
+<p>The interactions designed for your primary persona should be smooth and polished. This includes user-friendly interactions and form design, friendly error messages (or, even better, designing away the ability for there to be errors!), and thoughtful user experience considerations such as clear user instructions and being sure everything visible works. If there are features you added user interface elements for that are not yet implemented, you should remove them by the end of this sprint. Everything visible should be functional.</p>
+<p>Additionally, polish should be added to the implementation wherever possible. You are encouraged to move through each story of your feature from end-to-end, including docs and tests, and improve your implementation wherever possible.</p>
+<h3 id="expectation-2-improve-the-information-design-of-your-documentation">Expectation 2: Improve the Information Design of your Documentation</h3>
+<p>Take another pass at your team’s information design decisions for documentation in <code>docs/</code> and be sure it is written for a developer to read. You should avoid language such as, “we would direct new developers to X and give them…”. Your documentation is written directly addressing a developer, not the course staff. If it helps, imagine you are writing for a future COMP423 student working to understand and extend your feature.</p>
+<p>Choose plain language where possible.</p>
+<p>Improve the formatting of your document to be sure it is easy to read and understand. Make appropriate use of paragraph text, versus merely bulleted lists, where needed. Choose heading text that is appropriate for your feature and the audience. If information would better be represented with a table, use a table instead of a list. This list is not exhaustive. Use your best judgement to make your documentation a <em>great</em> artifact you can be proud of and share with future employers.</p>
+<p>Finally, include screenshots of your feature from the end user persona’s perspective with narrative of what is being shown. To add an image to your project, place it in the <code>docs/images</code> directory.</p>
+<p>Include an authors section toward the top of the document listing the names of everyone in the group with links to their GitHub profiles.</p>
+<h3 id="expectation-3-project-management-standards">Expectation 3: Project Management &amp; Standards</h3>
+<p>These remain the same as in the previous sprint.</p>
+<p>Issues are kept up-to-date on project boards and closed out when completed. Changes are merged into stage exclusively via pull requests with meaningful code reviews. Commits merged into stage are descriptive following best practices of commit messages.</p>
+<p>Angular Material components are used anywhere there are inputs, tables, tabs, etc. If there is an Angular Material component that achieves what your user interfaces need, you should use it in the frontend rather than standard, or bespoke, native HTML controls.</p>
+<p>Backend service classes should be tested using Pytest with mock data. Backend service classes and methods should be documented using docstrings following the <a href="https://google.github.io/styleguide/pyguide.html#38-comments-and-docstrings">Google Python Style Guide</a>.</p>
+<p>Careful attention to permissions and access control should be paid to adhere to the principle of least privilege. Users should only be able to perform the necessary actions on the permitted resources for their legitimate purpose.</p>
+<p>Stories merged in to <code>stage</code> should be of usable, production quality.</p>
+<h3 id="extra-credit-1-point---catch-your-stage-branch-up-with-csxl.unc.edu-production">Extra-Credit (1 point) - Catch Your <code>stage</code> Branch up with csxl.unc.edu Production</h3>
+<p>The TAs are not permitted to assist with this extra credit opportunity in or outside of Office Hours.</p>
+<p>Some PRs have landed in production at <code>csxl.unc.edu</code> since you began Sprint 2: <a href="https://github.com/unc-csxl/csxl.unc.edu/commits/main" class="uri">https://github.com/unc-csxl/csxl.unc.edu/commits/main</a></p>
+<p>To earn this point of extra credit, you should catch your stage branch up to <code>upstream/main</code> such that you have commit <code>ea620d4</code>, or later, in your <code>stage</code> branch. You may need to resolve conflicts. When creating a PR for this catch-up branch, <strong>rather than squashing and merging into your <code>stage</code> in this instance you should use the “Create a Merge Commit” strategy</strong>. This strategy will retain the history from production’s main branch.</p>
+<p>This is good practice, and easier to achieve, if it’s done semi-regularly. Additionally, this serves as a prerequisite to being considered for merging your team’s features into production after the semester ends.</p>
+</div>
+
+       
+
+    </div> 
+
+    <div class="authors-box bg-light mt-4 py-3 ps-4">
+      <span> Contributor(s): Kris Jordan</span>
+    </div>
+  </div>
+  <div class='link-page mt-3 container'>
+    <footer>
+      <h6 class="text-center align-middle footer-text">&copy; 2023 <a href="https://krisjordan.com">Kris Jordan</a>
+        - <a
+          href="https://docs.google.com/forms/d/e/1FAIpQLScQMteEvnQpBfGsAYP5TpuqokQenhZUIf8CNvfAUUZEjMCWZQ/viewform?usp=sf_link">Feedback
+          Form</a>
+        - Made with 💛 in <a href="https://cs.unc.edu/">Chapel Hill</a></h6>
+    </footer>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+    crossorigin="anonymous"></script>
+
+  <!-- Load React. -->
+  <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+  <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</body>
+
+</html>
